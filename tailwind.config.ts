@@ -48,9 +48,8 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         "hero-overlay": "hsl(var(--hero-overlay))",
-        "stat-bg": "hsl(var(--stat-bg))",
-        "myth-bg": "hsl(var(--myth-bg))",
-        "cta-bg": "hsl(var(--cta-bg))",
+        "brand-dark": "hsl(var(--brand-dark))",
+        "brand-gold": "hsl(var(--brand-gold))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
