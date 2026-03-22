@@ -1,7 +1,7 @@
 const stats = [
-  { number: "336,000", label: "Average number of home buyers we help each year with surveys and valuations." },
-  { number: "25+", label: "The years we have been operating for, making us one of the most established surveying service providers in the UK." },
-  { number: "390+", label: "Our network of local surveyors, allowing us to provide cover across the UK." },
+  { number: "RPSA", label: "Regulated by the Residential Property Surveyors Association — the industry's leading specialists." },
+  { number: "10+", label: "Years of experience delivering high-quality residential property surveys across the UK." },
+  { number: "100%", label: "Committed to helping you make informed property decisions with expert guidance." },
 ];
 
 const WhyChooseUs = () => {
@@ -9,18 +9,18 @@ const WhyChooseUs = () => {
     <section id="why-choose-us" className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
-          Why choose us?
+          Why choose Victory Surveying?
         </h2>
         <div className="mt-12 grid md:grid-cols-3 gap-8">
           {stats.map((stat) => (
             <div
               key={stat.number}
-              className="text-center bg-primary rounded-lg p-8"
+              className="text-center bg-brand-dark rounded-lg p-8"
             >
-              <p className="text-4xl md:text-5xl font-bold text-primary-foreground">
+              <p className="text-4xl md:text-5xl font-bold text-primary">
                 {stat.number}
               </p>
-              <p className="mt-4 text-primary-foreground/85 leading-relaxed text-sm">
+              <p className="mt-4 text-primary/70 leading-relaxed text-sm">
                 {stat.label}
               </p>
             </div>

@@ -26,12 +26,12 @@ const MythsBusted = () => {
         <div className="mt-12 grid md:grid-cols-3 gap-8">
           {myths.map((item, i) => (
             <div key={i} className="bg-card rounded-lg p-8 border border-border">
-              <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+              <span className="inline-block bg-brand-dark text-primary text-xs font-bold px-3 py-1 rounded-full">
                 Myth #{i + 1}
               </span>
               <h3 className="mt-4 text-lg font-bold text-foreground">{item.myth}</h3>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                <span className="font-semibold text-accent">Fact:</span> {item.fact}
+                <span className="font-semibold text-primary">Fact:</span> {item.fact}
               </p>
             </div>
           ))}

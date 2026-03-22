@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Menu, X, MessageSquare } from "lucide-react";
+import logo from "@/assets/victory-logo.png";
 
 const navLinks = [
   { label: "Why choose us?", href: "#why-choose-us" },
   { label: "Why do I need a survey?", href: "#why-need-survey" },
-  { label: "Choose a survey", href: "#choose-survey" },
+  { label: "Our surveys", href: "#choose-survey" },
   { label: "News and insights", href: "#news" },
 ];
 
@@ -15,8 +16,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold text-primary tracking-tight">
-            Surveying Services
+          <a href="#" className="flex items-center gap-3">
+            <img src={logo} alt="Victory Surveying" className="h-12 w-auto" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -33,8 +34,8 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-2">
             <a
-              href="#get-in-touch"
-              className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              href="#quote-request"
+              className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
             >
               <MessageSquare className="w-4 h-4" />
               Get a quote
@@ -65,7 +66,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#get-in-touch"
+              href="#quote-request"
               className="block text-sm font-semibold text-primary"
               onClick={() => setIsOpen(false)}
             >

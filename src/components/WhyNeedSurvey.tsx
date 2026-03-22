@@ -14,8 +14,10 @@ const WhyNeedSurvey = () => {
         <p className="mt-4 text-muted-foreground leading-relaxed">
           Buying a home can be one of the biggest financial commitments you are likely to make, so it is important to know as much as you can about the property you are thinking of purchasing.
         </p>
-        <Button variant="outline" className="mt-8 gap-2 text-primary border-primary hover:bg-primary hover:text-primary-foreground">
-          Find out more <ArrowRight className="w-4 h-4" />
+        <Button asChild variant="outline" className="mt-8 gap-2 text-primary border-primary hover:bg-primary hover:text-primary-foreground">
+          <a href="#quote-request">
+            Request a quote <ArrowRight className="w-4 h-4" />
+          </a>
         </Button>
       </div>
     </section>
