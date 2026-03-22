@@ -1,24 +1,24 @@
 import { MapPin, Phone } from "lucide-react";
-import womanLaptop from "@/assets/woman-laptop.jpg";
-import houseExterior from "@/assets/house-exterior.jpg";
-import houseStairs from "@/assets/house-stairs.jpg";
+import greatYarmouthImg from "@/assets/great-yarmouth.jpg";
+import norwichImg from "@/assets/norwich.jpg";
+import suffolkImg from "@/assets/suffolk-coast.jpg";
 
 const areas = [
   {
-    image: womanLaptop,
-    alt: "Great Yarmouth and surrounding area",
+    image: greatYarmouthImg,
+    alt: "Great Yarmouth seafront and surrounding area",
     region: "Great Yarmouth & Surrounds",
-    locations: ["Great Yarmouth", "Gorleston", "Caister-on-Sea", "Bradwell"],
+    locations: ["Great Yarmouth", "Gorleston", "Caister-on-Sea"],
   },
   {
-    image: houseExterior,
-    alt: "Norwich and Norfolk area",
+    image: norwichImg,
+    alt: "Norwich city and Norfolk countryside",
     region: "Norwich & Norfolk",
     locations: ["Norwich", "North Norfolk", "Acle"],
   },
   {
-    image: houseStairs,
-    alt: "Suffolk and Waveney area",
+    image: suffolkImg,
+    alt: "Suffolk and Waveney coastline",
     region: "Suffolk & Waveney",
     locations: ["Lowestoft", "Beccles", "Bungay"],
   },
