@@ -1,66 +1,76 @@
-import { ArrowRight } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import womanLaptop from "@/assets/woman-laptop.jpg";
 import houseExterior from "@/assets/house-exterior.jpg";
 import houseStairs from "@/assets/house-stairs.jpg";
 
-const articles = [
+const areas = [
   {
     image: womanLaptop,
-    alt: "Woman with laptop",
-    title: "What type of survey should you go for?",
-    description: "The level and type of survey you choose will determine how quickly you receive the survey and how much support you can expect.",
+    alt: "Great Yarmouth and surrounding area",
+    region: "Great Yarmouth & Surrounds",
+    locations: ["Great Yarmouth", "Gorleston", "Caister-on-Sea", "Bradwell"],
   },
   {
     image: houseExterior,
-    alt: "House exterior",
-    title: "Five most common home survey problems and what to do next",
-    description: "Read more about some of the most common issues found during a house survey and how they can be mitigated.",
+    alt: "Norwich and Norfolk area",
+    region: "Norwich & Norfolk",
+    locations: ["Norwich", "North Norfolk", "Acle"],
   },
   {
     image: houseStairs,
-    alt: "House interior staircase",
-    title: "Five top reasons why you should get a property survey",
-    description: "There are many reasons why you should consider getting a survey before you purchase a new house.",
+    alt: "Suffolk and Waveney area",
+    region: "Suffolk & Waveney",
+    locations: ["Lowestoft", "Beccles", "Bungay"],
   },
 ];
 
 const NewsInsights = () => {
   return (
-    <section id="news" className="py-16 md:py-20">
+    <section id="coverage" className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-          News and insights
-        </h2>
-        <p className="mt-2 text-muted-foreground">
-          Articles, technical advice and commentary to help you stay informed about property surveys.
-        </p>
-        <div className="mt-10 grid md:grid-cols-3 gap-8">
-          {articles.map((article) => (
-            <a
-              key={article.title}
-              href="#"
-              className="group bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow"
+        <div className="max-w-2xl mb-10">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider">Coverage</p>
+          <h2 className="mt-2 text-2xl md:text-3xl font-bold text-foreground">
+            Serving Norfolk & Suffolk
+          </h2>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Based in Great Yarmouth, we cover a wide area across East Anglia. Not listed below? Call us — we are often able to accommodate.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {areas.map((area) => (
+            <div
+              key={area.region}
+              className="bg-card rounded-lg overflow-hidden border border-border shadow-sm"
             >
               <div className="h-48 overflow-hidden">
                 <img
-                  src={article.image}
-                  alt={article.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  src={area.image}
+                  alt={area.alt}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                  {article.title}
+                <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  {area.region}
                 </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {article.description}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                  Find out more <ArrowRight className="w-4 h-4" />
-                </span>
+                <ul className="mt-3 space-y-1.5">
+                  {area.locations.map((loc) => (
+                    <li key={loc} className="text-sm text-muted-foreground">
+                      {loc}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </a>
+            </div>
           ))}
+        </div>
+
+        <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+          <Phone className="w-4 h-4 text-primary" />
+          Not sure if we cover your area? Call us and we'll confirm straight away.
         </div>
       </div>
     </section>
