@@ -7,7 +7,7 @@ const articles = [
   {
     image: womanLaptop,
     alt: "Woman with laptop",
-    title: "What type of survey should you go for",
+    title: "What type of survey should you go for?",
     description: "The level and type of survey you choose will determine how quickly you receive the survey and how much support you can expect.",
   },
   {
@@ -32,7 +32,7 @@ const NewsInsights = () => {
           News and insights
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Thought leadership articles, technical advice and commentary on the changing market to help you stay informed.
+          Articles, technical advice and commentary to help you stay informed about property surveys.
         </p>
         <div className="mt-10 grid md:grid-cols-3 gap-8">
           {articles.map((article) => (

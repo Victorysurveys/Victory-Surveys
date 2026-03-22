@@ -8,6 +8,7 @@ import SafeHands from "@/components/SafeHands";
 import WhyNeedSurvey from "@/components/WhyNeedSurvey";
 import NewsInsights from "@/components/NewsInsights";
 import CtaSection from "@/components/CtaSection";
+import QuoteRequestForm from "@/components/QuoteRequestForm";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 
@@ -24,6 +25,7 @@ const Index = () => {
       <WhyNeedSurvey />
       <NewsInsights />
       <CtaSection />
+      <QuoteRequestForm />
       <GetInTouch />
       <Footer />
     </div>

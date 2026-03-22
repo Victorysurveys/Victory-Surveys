@@ -10,7 +10,7 @@ const CtaSection = () => {
           <div className="rounded-lg overflow-hidden">
             <img
               src={ctaImage}
-              alt="Woman on phone with her dog"
+              alt="Friendly customer service"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -24,8 +24,10 @@ const CtaSection = () => {
             <p className="mt-4 text-muted-foreground leading-relaxed">
               By deciding to carry out a survey, you'll be equipped with information that puts you in a stronger position to choose whether to proceed with the purchase or negotiate a better deal.
             </p>
-            <Button className="mt-8 gap-2">
-              Home survey made easy <ArrowRight className="w-4 h-4" />
+            <Button asChild className="mt-8 gap-2">
+              <a href="#quote-request">
+                Request a quote <ArrowRight className="w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
