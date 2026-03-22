@@ -42,7 +42,7 @@ const NewsInsights = () => {
           {areas.map((area) => (
             <div
               key={area.region}
-              className="bg-card rounded-lg overflow-hidden border border-border shadow-sm"
+              className="bg-card rounded-lg overflow-hidden border border-border shadow-sm flex flex-col"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -51,9 +51,9 @@ const NewsInsights = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-lg font-bold text-foreground flex items-center gap-2 min-h-[3.5rem]">
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                   {area.region}
                 </h3>
                 <ul className="mt-3 space-y-1.5">
