@@ -28,7 +28,11 @@ const propertyTypes = [
   "Other",
 ];
 
-const QuoteRequestForm = () => {
+interface QuoteRequestFormProps {
+  preSelectedSurvey?: string;
+}
+
+const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
