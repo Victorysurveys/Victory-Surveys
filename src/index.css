@@ -100,7 +100,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background: hsl(var(--background) / 0.93);
+    background: hsl(var(--background) / 0.82);
     z-index: 0;
     pointer-events: none;
   }
