@@ -8,30 +8,40 @@ const surveys = [
     slug: "/surveys/home-buyer-condition",
     description:
       "For traditional properties that are modern, of standard construction and not too big or complicated.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+    popular: true,
   },
   {
     title: "Building Survey",
     slug: "/surveys/building",
     description:
       "Ideally suited to larger, more complex, older, extended or higher value homes.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+    popular: false,
   },
   {
     title: "Buy To Let Survey",
     slug: "/surveys/buy-to-let",
     description:
       "The only survey of its type, designed for properties let to tenants. ONLY available from RPSA members.",
+    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&h=400&fit=crop",
+    popular: false,
   },
   {
     title: "New-build Snagging Inspection",
     slug: "/surveys/new-build-snagging",
     description:
       "A must for any newly constructed home. Based on industry-compatible standards.",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop",
+    popular: false,
   },
   {
     title: "Property Consultancy",
     slug: "/surveys/property-consultancy",
     description:
       "Bespoke consultancy services tailored to your specific property needs.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
+    popular: false,
   },
 ];
 
@@ -52,21 +62,34 @@ const SurveyTypes = () => {
           {surveys.map((survey) => (
             <div
               key={survey.title}
-              className="bg-card rounded-lg p-8 border border-border shadow-sm flex flex-col"
+              className="bg-card rounded-lg border border-border shadow-sm flex flex-col overflow-hidden relative"
             >
-              <h3 className="text-lg font-bold text-foreground">{survey.title}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
-                {survey.description}
-              </p>
-              <div className="mt-6 flex gap-3">
-                <Button asChild variant="outline" size="sm" className="gap-2">
-                  <Link to={survey.slug}>
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="sm" className="gap-2">
-                  <a href="#quote-request">Get a quote</a>
-                </Button>
+              {survey.popular && (
+                <span className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                  Most Popular
+                </span>
+              )}
+              <img
+                src={survey.image}
+                alt={survey.title}
+                className="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold text-foreground">{survey.title}</h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
+                  {survey.description}
+                </p>
+                <div className="mt-6 flex gap-3">
+                  <Button asChild variant="outline" size="sm" className="gap-2">
+                    <Link to={survey.slug}>
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                  <Button asChild size="sm" className="gap-2">
+                    <a href="#quote-request">Get a quote</a>
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
