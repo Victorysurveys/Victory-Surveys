@@ -91,24 +91,6 @@
     font-family: 'Source Sans 3', system-ui, sans-serif;
   }
 
-  body > #root {
-    position: relative;
-  }
-
-  body > #root::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url('/images/brick-background.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.06;
-    z-index: 9999;
-    pointer-events: none;
-  }
-
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Source Sans 3', system-ui, sans-serif;
   }
