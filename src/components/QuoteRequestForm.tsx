@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,7 +28,11 @@ const propertyTypes = [
   "Other",
 ];
 
-const QuoteRequestForm = () => {
+interface QuoteRequestFormProps {
+  preSelectedSurvey?: string;
+}
+
+const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -46,6 +50,12 @@ const QuoteRequestForm = () => {
     vendorName: "",
     additionalInfo: "",
   });
+
+  useEffect(() => {
+    if (preSelectedSurvey) {
+      setFormData((prev) => ({ ...prev, surveyType: preSelectedSurvey }));
+    }
+  }, [preSelectedSurvey]);
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));

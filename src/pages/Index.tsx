@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
@@ -13,19 +14,25 @@ import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [preSelectedSurvey, setPreSelectedSurvey] = useState("");
+
+  const handleSurveyRecommend = (surveyType: string) => {
+    setPreSelectedSurvey(surveyType);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <IntroSection />
-      <SurveyTypes />
+      <SurveyTypes onRecommend={handleSurveyRecommend} />
       <WhyChooseUs />
       <MythsBusted />
       <SafeHands />
       <WhyNeedSurvey />
       <NewsInsights />
       <CtaSection />
-      <QuoteRequestForm />
+      <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />
       <GetInTouch />
       <Footer />
     </div>
