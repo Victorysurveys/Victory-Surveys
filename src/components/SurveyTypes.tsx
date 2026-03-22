@@ -46,19 +46,26 @@ const surveys = [
   },
 ];
 
-const SurveyTypes = () => {
+interface SurveyTypesProps {
+  onRecommend?: (surveyType: string) => void;
+}
+
+const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
   return (
     <section id="choose-survey" className="py-16 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">
           Our Survey Services
         </h2>
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
+        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-6">
           Only RPSA Surveyors offer products based on a full and thorough inspection.{" "}
           <Link to="/surveys" className="text-primary hover:underline font-medium">
             View all surveys →
           </Link>
         </p>
+        <div className="flex justify-center mb-10">
+          <SurveyRecommender onRecommend={onRecommend} />
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {surveys.map((survey) => (
             <div
