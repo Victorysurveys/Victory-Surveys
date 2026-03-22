@@ -8,8 +8,10 @@ import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 
 const surveyTypes = [
-  "RPSA Home Survey Level 2",
-  "RPSA Home Survey Level 3",
+  "Home Buyer / Condition Survey",
+  "Building Survey",
+  "Buy To Let Survey",
+  "New-build Snagging Inspection",
   "Property Consultancy",
   "Not sure — please advise",
 ];
