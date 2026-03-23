@@ -84,6 +84,9 @@ const NewsInsights = () => {
                   src={area.image}
                   alt={area.alt}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  width={400}
+                  height={192}
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
