@@ -13,7 +13,7 @@ const WhyNeedSurveyPage = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary">
             Why do you need a survey?
           </h1>
-          <p className="mt-4 text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed text-lg">
+          <p className="mt-4 text-white max-w-2xl mx-auto leading-relaxed text-lg">
             A property survey is one of the smartest investments you can make when buying a home. Here's why.
           </p>
         </div>
@@ -27,8 +27,8 @@ const WhyNeedSurveyPage = () => {
             <div className="w-full md:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-                  alt="Modern house exterior — why you need a property survey"
+                  src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=800&q=80"
+                  alt="Condensation on a window — a common sign of damp issues in properties"
                   className="w-full h-72 md:h-96 object-cover"
                   loading="lazy"
                 />
