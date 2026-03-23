@@ -9,6 +9,7 @@ const Hero = () => {
         src={heroImage}
         alt="Happy family in their home"
         className="absolute inset-0 w-full h-full object-cover"
+        fetchPriority="high"
       />
       <div className="absolute inset-0 bg-hero-overlay/60" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
