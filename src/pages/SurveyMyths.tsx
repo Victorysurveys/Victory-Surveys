@@ -11,7 +11,7 @@ const myths = [
   {
     myth: "If issues are found, the sale will fall through",
     fact: "If issues are uncovered during the survey, you can get repair quotes and choose to make an informed decision or discuss the asking price. Most surveys do identify some issues — that's the whole point. Knowledge is power, and being aware of problems puts you in a stronger negotiating position rather than walking away.",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Property negotiation and discussion",
   },
   {
