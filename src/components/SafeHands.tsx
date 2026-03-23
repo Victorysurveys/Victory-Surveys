@@ -75,29 +75,6 @@ const SafeHands = () => {
             </div>
           ))}
         </div>
-
-        {/* Credentials bar */}
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-4 md:gap-6">
-          {[
-            { label: "RPSA Regulated", highlight: true },
-            { label: "MCABE Chartered", highlight: false },
-            { label: "MCIOB Chartered", highlight: false },
-            { label: "Degree Qualified", highlight: false },
-            { label: "8+ Years Experience", highlight: false },
-          ].map((badge) => (
-            <div
-              key={badge.label}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
-                badge.highlight
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card text-foreground border border-border"
-              }`}
-            >
-              <Award className="w-4 h-4" />
-              {badge.label}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
