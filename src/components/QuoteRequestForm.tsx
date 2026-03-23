@@ -333,7 +333,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                       }
                     }}
                   >
-                    <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectTrigger aria-label="Estate agent branch" className={`mt-1 ${inputClass}`}>
                       <SelectValue placeholder="Select local branch" />
                     </SelectTrigger>
                     <SelectContent>
