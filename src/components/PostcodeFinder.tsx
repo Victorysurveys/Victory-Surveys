@@ -32,6 +32,7 @@ const PostcodeFinder = ({
   inputClassName = "",
 }: PostcodeFinderProps) => {
   const [searchPostcode, setSearchPostcode] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [showManual, setShowManual] = useState(false);
@@ -44,7 +45,7 @@ const PostcodeFinder = ({
     setAddressFound(false);
 
     try {
-      // Step 1: Look up postcode to get coordinates + area info
+      // Step 1: Look up postcode for coordinates + area info
       const postcodeRes = await fetch(
         `https://api.postcodes.io/postcodes/${encodeURIComponent(searchPostcode.trim())}`
       );
@@ -63,7 +64,7 @@ const PostcodeFinder = ({
       const county = r.admin_county || r.admin_district || "";
       const postcode = r.postcode;
 
-      // Step 2: Reverse geocode coordinates to get street name
+      // Step 2: Reverse geocode to get street name
       let road = "";
       try {
         const nominatimRes = await fetch(
@@ -73,11 +74,16 @@ const PostcodeFinder = ({
         const nominatimData = await nominatimRes.json();
         road = nominatimData?.address?.road || "";
       } catch {
-        // Road lookup failed — not critical, continue without it
+        // Road lookup failed — continue without it
       }
 
+      // Combine house number with road
+      const line1 = houseNumber.trim()
+        ? `${houseNumber.trim()} ${road}`
+        : road;
+
       onChange({
-        line1: road,
+        line1: line1.trim(),
         line2: "",
         city: town,
         county: county,
@@ -99,6 +105,7 @@ const PostcodeFinder = ({
 
   const handleReset = () => {
     setSearchPostcode("");
+    setHouseNumber("");
     setAddressFound(false);
     setShowManual(false);
     setNotFound(false);
@@ -112,10 +119,23 @@ const PostcodeFinder = ({
       </Label>
       <div className="flex gap-2">
         <Input
+          id={`${id}-house`}
+          value={houseNumber}
+          onChange={(e) => setHouseNumber(e.target.value)}
+          placeholder="No."
+          className={`${inputClassName} w-20 shrink-0`}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              handleSearch();
+            }
+          }}
+        />
+        <Input
           id={`${id}-search`}
           value={searchPostcode}
           onChange={(e) => setSearchPostcode(e.target.value)}
-          placeholder="Enter postcode to find address"
+          placeholder="Postcode"
           className={inputClassName}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -156,9 +176,7 @@ const PostcodeFinder = ({
         <div className="space-y-3 pt-1">
           {addressFound && (
             <div className="flex items-center justify-between">
-              <p className="text-sm text-primary font-medium">
-                ✓ Address found — add your house name/number below
-              </p>
+              <p className="text-sm text-primary font-medium">✓ Address found</p>
               <button
                 type="button"
                 onClick={handleReset}
