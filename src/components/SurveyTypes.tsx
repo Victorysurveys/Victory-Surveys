@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
 import bricksSurveyImg from "@/assets/bricks-survey.jpg";
+import snaggingSurveyImg from "@/assets/snagging-survey.png";
 import btlSurveyImg from "@/assets/btl-survey.jpg";
 import buildingSurveyImg from "@/assets/building-survey.jpg";
 
@@ -36,7 +37,7 @@ const surveys = [
     slug: "/surveys/new-build-snagging",
     description:
       "A must for any newly constructed home. Based on industry-compatible standards.",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop",
+    image: snaggingSurveyImg,
     popular: false,
   },
 ];
