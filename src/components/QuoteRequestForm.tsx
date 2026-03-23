@@ -166,7 +166,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                 onValueChange={(val) => handleChange("surveyType", val)}
                 required
               >
-                <SelectTrigger className={`mt-1 ${inputClass}`}>
+                <SelectTrigger aria-label="Survey type" className={`mt-1 ${inputClass}`}>
                   <SelectValue placeholder="Select a survey type" />
                 </SelectTrigger>
                 <SelectContent>
