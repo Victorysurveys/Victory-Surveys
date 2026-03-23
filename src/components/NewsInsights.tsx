@@ -1,7 +1,16 @@
-import { MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, Mail, MessageCircle, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 import greatYarmouthImg from "@/assets/great-yarmouth.jpg";
 import norwichImg from "@/assets/norwich.jpg";
 import suffolkImg from "@/assets/suffolk-coast.jpg";
+
+const PHONE_NUMBER = "tel:+441234567890";
+const RECIPIENT_EMAIL = "info@victorysurveying.co.uk";
 
 const areas = [
   {
@@ -25,6 +34,32 @@ const areas = [
 ];
 
 const NewsInsights = () => {
+  const [showOptions, setShowOptions] = useState(false);
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+        `Coverage Enquiry from ${form.name}`
+      )}&body=${encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      toast.success("Opening your email client...");
+      setShowEmailForm(false);
+      setShowOptions(false);
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section id="coverage" className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +69,7 @@ const NewsInsights = () => {
             Serving Norfolk & Suffolk
           </h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Based in Great Yarmouth, we cover a wide area across East Anglia. Not listed below? Call us — we are often able to accommodate.
+            Based in Great Yarmouth, we cover a wide area across East Anglia. Not listed below? Get in touch — we are often able to accommodate.
           </p>
         </div>
 
@@ -68,10 +103,109 @@ const NewsInsights = () => {
           ))}
         </div>
 
-        <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
-          <Phone className="w-4 h-4 text-primary" />
-          Not sure if we cover your area? Call us and we'll confirm straight away.
+        {/* Contact CTA */}
+        <div className="mt-8 relative">
+          <div className="flex items-center gap-3">
+            <MessageCircle className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">Not sure if we cover your area?</span>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => setShowOptions(!showOptions)}
+              className="gap-2"
+            >
+              Contact Us
+            </Button>
+          </div>
+
+          {showOptions && (
+            <div className="mt-3 flex gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
+              <a href={PHONE_NUMBER}>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Button>
+              </a>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => setShowEmailForm(true)}
+              >
+                <Mail className="w-4 h-4" />
+                Email Us
+              </Button>
+            </div>
+          )}
         </div>
+
+        {/* Email Form Modal */}
+        {showEmailForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="bg-card rounded-xl shadow-2xl w-full max-w-md border border-border animate-in fade-in zoom-in-95 duration-200">
+              <div className="flex items-center justify-between p-5 border-b border-border">
+                <h3 className="text-lg font-bold text-foreground">Get in Touch</h3>
+                <button
+                  onClick={() => setShowEmailForm(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <form onSubmit={handleEmailSubmit} className="p-5 space-y-4">
+                <div>
+                  <Label htmlFor="contact-name" className="text-sm font-medium text-foreground">Name *</Label>
+                  <Input
+                    id="contact-name"
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Your full name"
+                    className="mt-1"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="contact-email" className="text-sm font-medium text-foreground">Email *</Label>
+                  <Input
+                    id="contact-email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    placeholder="you@example.com"
+                    className="mt-1"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="contact-phone" className="text-sm font-medium text-foreground">Phone</Label>
+                  <Input
+                    id="contact-phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    placeholder="07xxx xxxxxx"
+                    className="mt-1"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="contact-message" className="text-sm font-medium text-foreground">Message *</Label>
+                  <Textarea
+                    id="contact-message"
+                    required
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder="Tell us about your enquiry, e.g. the area or property you need surveyed..."
+                    rows={4}
+                    className="mt-1"
+                  />
+                </div>
+                <Button type="submit" className="w-full" disabled={sending}>
+                  {sending ? "Sending..." : "Send Enquiry"}
+                </Button>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
