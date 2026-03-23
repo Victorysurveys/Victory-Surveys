@@ -250,14 +250,20 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="agentName" className={labelClass}>Estate agent name</Label>
-                <Input
-                  id="agentName"
+                <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
+                <Select
                   value={formData.agentName}
-                  onChange={(e) => handleChange("agentName", e.target.value)}
-                  placeholder="Agent name / branch"
-                  className={`mt-1 ${inputClass}`}
-                />
+                  onValueChange={(val) => handleChange("agentName", val)}
+                >
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectValue placeholder="Select local branch" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {localAgentBranches.map((branch) => (
+                      <SelectItem key={branch} value={branch}>{branch}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="agentContact" className={labelClass}>Agent phone / email</Label>
