@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
 import SurveyTypes from "@/components/SurveyTypes";
-import WhyChooseUs from "@/components/WhyChooseUs";
 import MythsBusted from "@/components/MythsBusted";
 import SafeHands from "@/components/SafeHands";
 import WhyNeedSurvey from "@/components/WhyNeedSurvey";
@@ -26,9 +25,8 @@ const Index = () => {
       <Hero />
       <IntroSection />
       <SurveyTypes onRecommend={handleSurveyRecommend} />
-      <WhyChooseUs />
-      <MythsBusted />
       <SafeHands />
+      <MythsBusted />
       <WhyNeedSurvey />
       <NewsInsights />
       <CtaSection />
