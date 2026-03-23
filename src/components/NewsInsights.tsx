@@ -9,7 +9,7 @@ import greatYarmouthImg from "@/assets/great-yarmouth.jpg";
 import norwichImg from "@/assets/norwich.jpg";
 import suffolkImg from "@/assets/suffolk-coast.jpg";
 
-const PHONE_NUMBER = "tel:+441234567890";
+const PHONE_NUMBER = "tel:+4407874062271";
 const RECIPIENT_EMAIL = "info@victorysurveying.co.uk";
 
 const areas = [

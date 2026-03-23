@@ -1,6 +1,41 @@
-import { Phone, Mail, Globe } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, Globe, MessageCircle, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+
+const PHONE_NUMBER = "tel:+4407874062271";
+const RECIPIENT_EMAIL = "Info@victorysurveying.co.uk";
 
 const GetInTouch = () => {
+  const [showOptions, setShowOptions] = useState(false);
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+        `Enquiry from ${form.name}`
+      )}&body=${encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      toast.success("Opening your email client...");
+      setShowEmailForm(false);
+      setShowOptions(false);
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section id="get-in-touch" className="py-16 md:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -10,21 +45,37 @@ const GetInTouch = () => {
         <p className="mt-4 text-muted-foreground">
           Please contact Victory Surveying at any time.
         </p>
+
         <div className="mt-8 flex flex-col items-center gap-4">
-          <a
-            href="tel:+4407874062271"
-            className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
+          <Button
+            size="lg"
+            onClick={() => setShowOptions(!showOptions)}
+            className="gap-2 text-lg px-8"
           >
-            <Phone className="w-5 h-5" />
-            (+44) 07874 062271
-          </a>
-          <a
-            href="mailto:Info@victorysurveying.co.uk"
-            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
-          >
-            <Mail className="w-5 h-5" />
-            Info@victorysurveying.co.uk
-          </a>
+            <MessageCircle className="w-5 h-5" />
+            Contact Us
+          </Button>
+
+          {showOptions && (
+            <div className="flex gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+              <a href={PHONE_NUMBER}>
+                <Button variant="outline" size="lg" className="gap-2">
+                  <Phone className="w-5 h-5" />
+                  Call Us
+                </Button>
+              </a>
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2"
+                onClick={() => setShowEmailForm(true)}
+              >
+                <Mail className="w-5 h-5" />
+                Email Us
+              </Button>
+            </div>
+          )}
+
           <a
             href="https://victorysurveying.co.uk"
             target="_blank"
@@ -35,10 +86,79 @@ const GetInTouch = () => {
             victorysurveying.co.uk
           </a>
         </div>
+
         <p className="mt-6 text-sm text-muted-foreground">
           We will return calls outside of business hours as soon as possible.
         </p>
       </div>
+
+      {/* Email Form Modal */}
+      {showEmailForm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-card rounded-xl shadow-2xl w-full max-w-md border border-border animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between p-5 border-b border-border">
+              <h3 className="text-lg font-bold text-foreground">Get in Touch</h3>
+              <button
+                onClick={() => setShowEmailForm(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <form onSubmit={handleEmailSubmit} className="p-5 space-y-4">
+              <div>
+                <Label htmlFor="bottom-contact-name" className="text-sm font-medium text-foreground">Name *</Label>
+                <Input
+                  id="bottom-contact-name"
+                  required
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Your full name"
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bottom-contact-email" className="text-sm font-medium text-foreground">Email *</Label>
+                <Input
+                  id="bottom-contact-email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="you@example.com"
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bottom-contact-phone" className="text-sm font-medium text-foreground">Phone</Label>
+                <Input
+                  id="bottom-contact-phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="07xxx xxxxxx"
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bottom-contact-message" className="text-sm font-medium text-foreground">Message *</Label>
+                <Textarea
+                  id="bottom-contact-message"
+                  required
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  placeholder="Tell us about your enquiry..."
+                  rows={4}
+                  className="mt-1"
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={sending}>
+                {sending ? "Sending..." : "Send Enquiry"}
+              </Button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
