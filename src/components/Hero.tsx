@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-surveying.webp";
+const heroImage = "/hero-surveying.webp";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
