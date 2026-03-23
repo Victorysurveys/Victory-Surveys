@@ -89,7 +89,7 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
                 <div className="mt-6 flex gap-3">
                   <Button asChild variant="outline" size="sm" className="gap-2 rounded-sm">
                     <Link to={survey.slug}>
-                      Learn more about {survey.title} <ArrowRight className="w-4 h-4" />
+                      Learn more <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
                   <Button asChild size="sm" className="gap-2 rounded-sm">
