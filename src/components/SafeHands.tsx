@@ -75,7 +75,7 @@ const SafeHands = () => {
             </div>
           ))}
         </div>
-
+      </div>
     </section>
   );
 };
