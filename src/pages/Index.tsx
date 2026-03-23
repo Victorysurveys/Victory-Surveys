@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
 import SurveyTypes from "@/components/SurveyTypes";
 import SafeHands from "@/components/SafeHands";
-import WhyNeedSurvey from "@/components/WhyNeedSurvey";
+
 import NewsInsights from "@/components/NewsInsights";
 import CtaSection from "@/components/CtaSection";
 import QuoteRequestForm from "@/components/QuoteRequestForm";
@@ -25,7 +25,7 @@ const Index = () => {
       <IntroSection />
       <SurveyTypes onRecommend={handleSurveyRecommend} />
       <SafeHands />
-      <WhyNeedSurvey />
+      
       <NewsInsights />
       <CtaSection />
       <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />

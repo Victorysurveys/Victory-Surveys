@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Our Surveys", href: "/surveys" },
   { label: "Why choose us?", href: "/#why-choose-us" },
-  { label: "Why do I need a survey?", href: "/#why-need-survey" },
+  { label: "Why do I need a survey?", href: "/why-need-survey" },
   { label: "Survey Myths", href: "/survey-myths" },
   { label: "Coverage", href: "/#news" },
 ];
