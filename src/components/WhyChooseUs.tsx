@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
           {stats.map((stat) => (
             <div
               key={stat.number}
-              className="text-center bg-brand-dark rounded-lg p-8"
+              className="text-center bg-brand-dark rounded-sm p-8"
             >
               <p className="text-4xl md:text-5xl font-bold text-primary">
                 {stat.number}

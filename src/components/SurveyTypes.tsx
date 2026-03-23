@@ -10,8 +10,7 @@ const surveys = [
     slug: "/surveys/home-buyer-condition",
     description:
       "For traditional properties that are modern, of standard construction and not too big or complicated.",
-    image: conditionSurveyImg + "?w=600&h=400&fit=cover",
-    imageClass: "object-cover object-center",
+    image: conditionSurveyImg,
     popular: true,
   },
   {
@@ -64,17 +63,17 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
           {surveys.map((survey) => (
             <div
               key={survey.title}
-              className="bg-card rounded-lg border border-border shadow-sm flex flex-col overflow-hidden relative"
+              className="bg-card rounded-sm border border-border shadow-sm flex flex-col overflow-hidden relative"
             >
               {survey.popular && (
-                <span className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                <span className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
                   Most Popular
                 </span>
               )}
               <img
                 src={survey.image}
                 alt={survey.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover object-center"
                 loading="lazy"
               />
               <div className="p-6 flex flex-col flex-1">
@@ -83,30 +82,29 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
                   {survey.description}
                 </p>
                 <div className="mt-6 flex gap-3">
-                  <Button asChild variant="outline" size="sm" className="gap-2">
+                  <Button asChild variant="outline" size="sm" className="gap-2 rounded-sm">
                     <Link to={survey.slug}>
                       Learn more <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
-                  <Button asChild size="sm" className="gap-2">
+                  <Button asChild size="sm" className="gap-2 rounded-sm">
                     <a href="#quote-request">Get a quote</a>
                   </Button>
                 </div>
               </div>
             </div>
           ))}
-
         </div>
 
         {/* Not listed CTA bar */}
-        <div className="mt-8 bg-card rounded-lg border-2 border-dashed border-primary/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
+        <div className="mt-8 bg-card rounded-sm border-2 border-dashed border-primary/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
           <div className="flex items-center gap-3">
             <MessageCircle className="w-6 h-6 text-primary flex-shrink-0" />
             <p className="text-foreground font-semibold">
               Not sure what you need, or want to access our consultancy services?
             </p>
           </div>
-          <Button asChild size="sm" className="gap-2 shrink-0">
+          <Button asChild size="sm" className="gap-2 shrink-0 rounded-sm">
             <a href="#get-in-touch">
               Contact Us <ArrowRight className="w-4 h-4" />
             </a>

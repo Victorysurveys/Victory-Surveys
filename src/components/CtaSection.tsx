@@ -97,11 +97,11 @@ const CtaSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="rounded-lg overflow-hidden">
+          <div className="rounded-sm overflow-hidden">
             <img
               src={surveyorPhoto}
               alt="Your local surveyor"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-sm"
             />
           </div>
           <div>
