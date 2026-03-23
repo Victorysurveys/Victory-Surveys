@@ -27,8 +27,8 @@ const WhyNeedSurveyPage = () => {
             <div className="w-full md:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-                  alt="Modern house exterior — why you need a property survey"
+                  src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=800&q=80"
+                  alt="Condensation on a window — a common sign of damp issues in properties"
                   className="w-full h-72 md:h-96 object-cover"
                   loading="lazy"
                 />
