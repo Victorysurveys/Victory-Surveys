@@ -10,6 +10,7 @@ import BuildingSurvey from "./pages/surveys/BuildingSurvey.tsx";
 import BuyToLet from "./pages/surveys/BuyToLet.tsx";
 import NewBuildSnagging from "./pages/surveys/NewBuildSnagging.tsx";
 import PropertyConsultancy from "./pages/surveys/PropertyConsultancy.tsx";
+import SurveyMyths from "./pages/SurveyMyths.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
