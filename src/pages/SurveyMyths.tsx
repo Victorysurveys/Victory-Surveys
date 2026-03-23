@@ -5,7 +5,7 @@ const myths = [
   {
     myth: "I already received a valuation, so don't need a survey!",
     fact: "A valuation will tell you the property's worth, but a survey can highlight issues with the property, along with a lot of other important information. A mortgage valuation is carried out for the lender's benefit — not yours. It won't tell you about damp, structural movement, roof defects, or any of the things that could end up costing you thousands.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Property valuation concept with house keys and documents",
   },
   {
