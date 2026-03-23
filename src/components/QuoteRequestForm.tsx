@@ -140,7 +140,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     }, 1000);
   };
 
-  const labelClass = "text-primary/80";
+  const labelClass = "text-brand-dark-text";
   const inputClass = "bg-background text-foreground";
 
   return (
