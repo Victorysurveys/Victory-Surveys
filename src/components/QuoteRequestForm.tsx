@@ -252,7 +252,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.propertyType}
                   onValueChange={(val) => handleChange("propertyType", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Property type" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
                   <SelectContent>
