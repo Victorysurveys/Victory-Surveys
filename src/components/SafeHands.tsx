@@ -83,7 +83,7 @@ const SafeHands = () => {
             { label: "MCABE Chartered", highlight: false },
             { label: "MCIOB Chartered", highlight: false },
             { label: "Degree Qualified", highlight: false },
-            { label: "10+ Years Experience", highlight: false },
+            { label: "8+ Years Experience", highlight: false },
           ].map((badge) => (
             <div
               key={badge.label}
