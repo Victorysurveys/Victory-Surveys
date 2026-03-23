@@ -111,7 +111,6 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
             </a>
           </Button>
         </div>
-        </div>
       </div>
     </section>
   );
