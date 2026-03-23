@@ -5,7 +5,7 @@ const myths = [
   },
   {
     myth: "If issues are found, the sale will fall through",
-    fact: "If issues are uncovered during the survey, you can get repair quotes and choose to reflect the repair cost in the asking price!",
+    fact: "If issues are uncovered during the survey, you can get repair quotes and choose to make an informed decision or discuss the asking price.",
   },
   {
     myth: "Surveys are too expensive and not worth the money",
