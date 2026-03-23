@@ -156,7 +156,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Survey Type */}
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+            <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
               Type of Survey
             </h3>
             <div>
