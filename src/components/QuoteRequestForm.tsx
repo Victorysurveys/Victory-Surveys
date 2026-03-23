@@ -121,7 +121,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         description: "We'll be in touch within 24 hours with your personalised quote.",
       });
       setFormData({
-        surveyType: "",
+        surveyType: "Not sure — please advise",
         fullName: "",
         email: "",
         phone: "",
