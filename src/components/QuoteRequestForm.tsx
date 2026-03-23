@@ -17,43 +17,48 @@ const surveyTypes = [
   "Not sure — please advise",
 ];
 
-const localAgentBranches = [
-  "Abbotts — Great Yarmouth",
-  "Abbotts — Norwich",
-  "Abbotts — Lowestoft",
-  "Allen & Harris — Norwich",
-  "Arnolds Keys — Norwich",
-  "Arnolds Keys — North Walsham",
-  "Bycroft — Great Yarmouth",
-  "Bycroft — Caister-on-Sea",
-  "Bycroft — Gorleston",
-  "Durrants — Beccles",
-  "Durrants — Bungay",
-  "Durrants — Acle",
-  "Ewemove — Great Yarmouth",
-  "Ewemove — Norwich",
-  "Fine & Country — Norwich",
-  "Fox & Sons — Lowestoft",
-  "Howards — Great Yarmouth",
-  "Howards — Gorleston",
-  "Howards — Caister-on-Sea",
-  "Lacy Scott & Knight — Beccles",
-  "Minors & Brady — Great Yarmouth",
-  "Minors & Brady — Norwich",
-  "Minors & Brady — Gorleston",
-  "Purplebricks — Norfolk",
-  "Purplebricks — Suffolk",
-  "Rialto — Great Yarmouth",
-  "Savills — Norwich",
-  "Sowerbys — Norwich",
-  "Sowerbys — North Norfolk",
-  "Stobart & Hurrell — Acle",
-  "Strutt & Parker — Norwich",
-  "William H Brown — Great Yarmouth",
-  "William H Brown — Norwich",
-  "William H Brown — Lowestoft",
-  "William H Brown — Gorleston",
-  "Other — not listed",
+interface AgentBranch {
+  name: string;
+  phone: string;
+  email: string;
+}
+
+const localAgentBranches: AgentBranch[] = [
+  { name: "Abbotts — Great Yarmouth", phone: "01493 331333", email: "greatyarmouth@abbotts.co.uk" },
+  { name: "Abbotts — Norwich", phone: "01603 629292", email: "norwich@abbotts.co.uk" },
+  { name: "Abbotts — Lowestoft", phone: "01502 531222", email: "lowestoft@abbotts.co.uk" },
+  { name: "Allen & Harris — Norwich", phone: "01603 760532", email: "norwich@allenandharris.co.uk" },
+  { name: "Arnolds Keys — Norwich", phone: "01603 620551", email: "norwich@arnoldskeys.com" },
+  { name: "Arnolds Keys — North Walsham", phone: "01692 402357", email: "northwalsham@arnoldskeys.com" },
+  { name: "Bycroft — Great Yarmouth", phone: "01493 844484", email: "info@bycroftestateagents.co.uk" },
+  { name: "Bycroft — Caister-on-Sea", phone: "01493 844484", email: "info@bycroftestateagents.co.uk" },
+  { name: "Bycroft — Gorleston", phone: "01493 844484", email: "info@bycroftestateagents.co.uk" },
+  { name: "Durrants — Beccles", phone: "01502 712122", email: "beccles@durrants.com" },
+  { name: "Durrants — Bungay", phone: "01502 712122", email: "beccles@durrants.com" },
+  { name: "Durrants — Acle", phone: "01502 712122", email: "info@durrants.com" },
+  { name: "Ewemove — Great Yarmouth", phone: "01493 300014", email: "greatyarmouth@ewemove.com" },
+  { name: "Ewemove — Norwich", phone: "01603 306014", email: "norwich@ewemove.com" },
+  { name: "Fine & Country — Norwich", phone: "01603 221888", email: "norwich@fineandcountry.com" },
+  { name: "Fox & Sons — Lowestoft", phone: "01502 573947", email: "lowestoft@foxandsons.co.uk" },
+  { name: "Howards — Great Yarmouth", phone: "01493 665005", email: "greatyarmouth@howards.co.uk" },
+  { name: "Howards — Gorleston", phone: "01493 665005", email: "gorleston@howards.co.uk" },
+  { name: "Howards — Caister-on-Sea", phone: "01493 665005", email: "contactus@howards.co.uk" },
+  { name: "Lacy Scott & Knight — Beccles", phone: "01502 712122", email: "beccles@lsk.co.uk" },
+  { name: "Minors & Brady — Great Yarmouth", phone: "01493 603783", email: "info@minorsandbrady.co.uk" },
+  { name: "Minors & Brady — Norwich", phone: "01603 783088", email: "info@minorsandbrady.co.uk" },
+  { name: "Minors & Brady — Gorleston", phone: "01493 603783", email: "info@minorsandbrady.co.uk" },
+  { name: "Purplebricks — Norfolk", phone: "0800 810 8008", email: "hello@purplebricks.com" },
+  { name: "Purplebricks — Suffolk", phone: "0800 810 8008", email: "hello@purplebricks.com" },
+  { name: "Rialto — Great Yarmouth", phone: "01493 330299", email: "info@rialtoproperty.co.uk" },
+  { name: "Savills — Norwich", phone: "01603 229229", email: "norwich@savills.com" },
+  { name: "Sowerbys — Norwich", phone: "01603 761441", email: "norwich@sowerbys.com" },
+  { name: "Sowerbys — North Norfolk", phone: "01328 730340", email: "burnhammarket@sowerbys.com" },
+  { name: "Stobart & Hurrell — Acle", phone: "01493 751007", email: "info@stobarthurrell.co.uk" },
+  { name: "Strutt & Parker — Norwich", phone: "01603 617431", email: "norwich@struttandparker.com" },
+  { name: "William H Brown — Great Yarmouth", phone: "01493 331044", email: "greatyarmouth@williamhbrown.co.uk" },
+  { name: "William H Brown — Norwich", phone: "01603 950084", email: "norwich@williamhbrown.co.uk" },
+  { name: "William H Brown — Lowestoft", phone: "01502 564822", email: "lowestoft@williamhbrown.co.uk" },
+  { name: "William H Brown — Gorleston", phone: "01493 331044", email: "gorleston@williamhbrown.co.uk" },
 ];
 
 const propertyTypes = [
@@ -77,6 +82,7 @@ interface QuoteRequestFormProps {
 const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showManualAgent, setShowManualAgent] = useState(false);
   const [formData, setFormData] = useState({
     surveyType: "",
     fullName: "",
@@ -88,7 +94,8 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     propertyPrice: "",
     numberOfBedrooms: "",
     agentName: "",
-    agentContact: "",
+    agentPhone: "",
+    agentEmail: "",
     vendorName: "",
     additionalInfo: "",
   });
@@ -124,10 +131,12 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         propertyPrice: "",
         numberOfBedrooms: "",
         agentName: "",
-        agentContact: "",
+        agentPhone: "",
+        agentEmail: "",
         vendorName: "",
         additionalInfo: "",
       });
+      setShowManualAgent(false);
     }, 1000);
   };
 
@@ -287,33 +296,114 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
               Agent / Vendor Details (if known)
             </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
-                <Select
-                  value={formData.agentName}
-                  onValueChange={(val) => handleChange("agentName", val)}
+
+            {!showManualAgent ? (
+              <div className="space-y-3">
+                <div>
+                  <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
+                  <Select
+                    value={formData.agentName}
+                    onValueChange={(val) => {
+                      const branch = localAgentBranches.find((b) => b.name === val);
+                      if (branch) {
+                        setFormData((prev) => ({
+                          ...prev,
+                          agentName: branch.name,
+                          agentPhone: branch.phone,
+                          agentEmail: branch.email,
+                        }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger className={`mt-1 ${inputClass}`}>
+                      <SelectValue placeholder="Select local branch" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {localAgentBranches.map((branch) => (
+                        <SelectItem key={branch.name} value={branch.name}>{branch.name}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowManualAgent(true)}
+                  className="text-sm text-primary underline hover:text-primary/80"
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
-                    <SelectValue placeholder="Select local branch" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {localAgentBranches.map((branch) => (
-                      <SelectItem key={branch} value={branch}>{branch}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  Enter details manually
+                </button>
+
+                {formData.agentName && (
+                  <div className="grid md:grid-cols-2 gap-4 bg-muted/10 border border-border/30 rounded-lg p-4">
+                    <div>
+                      <Label htmlFor="agentPhone" className={labelClass}>Agent phone</Label>
+                      <Input
+                        id="agentPhone"
+                        value={formData.agentPhone}
+                        onChange={(e) => handleChange("agentPhone", e.target.value)}
+                        placeholder="Phone number"
+                        className={`mt-1 ${inputClass}`}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="agentEmail" className={labelClass}>Agent email</Label>
+                      <Input
+                        id="agentEmail"
+                        value={formData.agentEmail}
+                        onChange={(e) => handleChange("agentEmail", e.target.value)}
+                        placeholder="Email address"
+                        className={`mt-1 ${inputClass}`}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
-              <div>
-                <Label htmlFor="agentContact" className={labelClass}>Agent phone / email</Label>
-                <Input
-                  id="agentContact"
-                  value={formData.agentContact}
-                  onChange={(e) => handleChange("agentContact", e.target.value)}
-                  placeholder="Contact details"
-                  className={`mt-1 ${inputClass}`}
-                />
+            ) : (
+              <div className="space-y-3">
+                <button
+                  type="button"
+                  onClick={() => setShowManualAgent(false)}
+                  className="text-sm text-primary underline hover:text-primary/80"
+                >
+                  ← Select from local branches
+                </button>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="agentNameManual" className={labelClass}>Estate agent name</Label>
+                    <Input
+                      id="agentNameManual"
+                      value={formData.agentName}
+                      onChange={(e) => handleChange("agentName", e.target.value)}
+                      placeholder="Agent name / branch"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="agentPhoneManual" className={labelClass}>Agent phone</Label>
+                    <Input
+                      id="agentPhoneManual"
+                      value={formData.agentPhone}
+                      onChange={(e) => handleChange("agentPhone", e.target.value)}
+                      placeholder="Phone number"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="agentEmailManual" className={labelClass}>Agent email</Label>
+                    <Input
+                      id="agentEmailManual"
+                      value={formData.agentEmail}
+                      onChange={(e) => handleChange("agentEmail", e.target.value)}
+                      placeholder="Email address"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                </div>
               </div>
+            )}
+
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="vendorName" className={labelClass}>Vendor / seller name</Label>
                 <Input
