@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
+import PostcodeFinder from "@/components/PostcodeFinder";
 
 const surveyTypes = [
   "Home Buyer / Condition Survey",
@@ -28,6 +29,8 @@ const propertyTypes = [
   "Other",
 ];
 
+const emptyAddress = { line1: "", line2: "", city: "", county: "", postcode: "" };
+
 interface QuoteRequestFormProps {
   preSelectedSurvey?: string;
 }
@@ -40,8 +43,8 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     fullName: "",
     email: "",
     phone: "",
-    propertyAddress: "",
-    propertyPostcode: "",
+    yourAddress: { ...emptyAddress },
+    propertyAddress: { ...emptyAddress },
     propertyType: "",
     propertyPrice: "",
     numberOfBedrooms: "",
@@ -65,7 +68,6 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
@@ -77,8 +79,8 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         fullName: "",
         email: "",
         phone: "",
-        propertyAddress: "",
-        propertyPostcode: "",
+        yourAddress: { ...emptyAddress },
+        propertyAddress: { ...emptyAddress },
         propertyType: "",
         propertyPrice: "",
         numberOfBedrooms: "",
@@ -89,6 +91,9 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
       });
     }, 1000);
   };
+
+  const labelClass = "text-primary/80";
+  const inputClass = "bg-background text-foreground";
 
   return (
     <section id="quote-request" className="py-16 md:py-20 bg-brand-dark">
@@ -107,13 +112,13 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
               Type of Survey
             </h3>
             <div>
-              <Label htmlFor="surveyType" className="text-primary/80">Survey type interested in *</Label>
+              <Label htmlFor="surveyType" className={labelClass}>Survey type interested in *</Label>
               <Select
                 value={formData.surveyType}
                 onValueChange={(val) => handleChange("surveyType", val)}
                 required
               >
-                <SelectTrigger className="mt-1 bg-background text-foreground">
+                <SelectTrigger className={`mt-1 ${inputClass}`}>
                   <SelectValue placeholder="Select a survey type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -132,18 +137,18 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="fullName" className="text-primary/80">Full name *</Label>
+                <Label htmlFor="fullName" className={labelClass}>Full name *</Label>
                 <Input
                   id="fullName"
                   required
                   value={formData.fullName}
                   onChange={(e) => handleChange("fullName", e.target.value)}
                   placeholder="John Smith"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="text-primary/80">Email address *</Label>
+                <Label htmlFor="email" className={labelClass}>Email address *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -151,11 +156,11 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   placeholder="john@example.com"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
               <div>
-                <Label htmlFor="phone" className="text-primary/80">Phone number *</Label>
+                <Label htmlFor="phone" className={labelClass}>Phone number *</Label>
                 <Input
                   id="phone"
                   type="tel"
@@ -163,10 +168,19 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   placeholder="07xxx xxxxxx"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
             </div>
+            <PostcodeFinder
+              id="yourAddress"
+              label="Your address"
+              required
+              value={formData.yourAddress}
+              onChange={(addr) => setFormData((prev) => ({ ...prev, yourAddress: addr }))}
+              labelClassName={labelClass}
+              inputClassName={inputClass}
+            />
           </div>
 
           {/* Property Details */}
@@ -174,37 +188,23 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
               Property Details
             </h3>
-            <div>
-              <Label htmlFor="propertyAddress" className="text-primary/80">Property address *</Label>
-              <Textarea
-                id="propertyAddress"
-                required
-                value={formData.propertyAddress}
-                onChange={(e) => handleChange("propertyAddress", e.target.value)}
-                placeholder="Full address of the property to be surveyed"
-                className="mt-1 bg-background text-foreground"
-                rows={2}
-              />
-            </div>
+            <PostcodeFinder
+              id="propertyAddress"
+              label="Property address"
+              required
+              value={formData.propertyAddress}
+              onChange={(addr) => setFormData((prev) => ({ ...prev, propertyAddress: addr }))}
+              labelClassName={labelClass}
+              inputClassName={inputClass}
+            />
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="propertyPostcode" className="text-primary/80">Postcode *</Label>
-                <Input
-                  id="propertyPostcode"
-                  required
-                  value={formData.propertyPostcode}
-                  onChange={(e) => handleChange("propertyPostcode", e.target.value)}
-                  placeholder="SW1A 1AA"
-                  className="mt-1 bg-background text-foreground"
-                />
-              </div>
-              <div>
-                <Label htmlFor="propertyType" className="text-primary/80">Property type</Label>
+                <Label htmlFor="propertyType" className={labelClass}>Property type</Label>
                 <Select
                   value={formData.propertyType}
                   onValueChange={(val) => handleChange("propertyType", val)}
                 >
-                  <SelectTrigger className="mt-1 bg-background text-foreground">
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -215,22 +215,22 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="propertyPrice" className="text-primary/80">Property price (if known)</Label>
+                <Label htmlFor="propertyPrice" className={labelClass}>Property price (if known)</Label>
                 <Input
                   id="propertyPrice"
                   value={formData.propertyPrice}
                   onChange={(e) => handleChange("propertyPrice", e.target.value)}
                   placeholder="£250,000"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
               <div>
-                <Label htmlFor="numberOfBedrooms" className="text-primary/80">Number of bedrooms</Label>
+                <Label htmlFor="numberOfBedrooms" className={labelClass}>Number of bedrooms</Label>
                 <Select
                   value={formData.numberOfBedrooms}
                   onValueChange={(val) => handleChange("numberOfBedrooms", val)}
                 >
-                  <SelectTrigger className="mt-1 bg-background text-foreground">
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
@@ -250,33 +250,33 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="agentName" className="text-primary/80">Estate agent name</Label>
+                <Label htmlFor="agentName" className={labelClass}>Estate agent name</Label>
                 <Input
                   id="agentName"
                   value={formData.agentName}
                   onChange={(e) => handleChange("agentName", e.target.value)}
                   placeholder="Agent name / branch"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
               <div>
-                <Label htmlFor="agentContact" className="text-primary/80">Agent phone / email</Label>
+                <Label htmlFor="agentContact" className={labelClass}>Agent phone / email</Label>
                 <Input
                   id="agentContact"
                   value={formData.agentContact}
                   onChange={(e) => handleChange("agentContact", e.target.value)}
                   placeholder="Contact details"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
               <div>
-                <Label htmlFor="vendorName" className="text-primary/80">Vendor / seller name</Label>
+                <Label htmlFor="vendorName" className={labelClass}>Vendor / seller name</Label>
                 <Input
                   id="vendorName"
                   value={formData.vendorName}
                   onChange={(e) => handleChange("vendorName", e.target.value)}
                   placeholder="Vendor name"
-                  className="mt-1 bg-background text-foreground"
+                  className={`mt-1 ${inputClass}`}
                 />
               </div>
             </div>
@@ -288,13 +288,13 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
               Additional Information
             </h3>
             <div>
-              <Label htmlFor="additionalInfo" className="text-primary/80">Anything else we should know?</Label>
+              <Label htmlFor="additionalInfo" className={labelClass}>Anything else we should know?</Label>
               <Textarea
                 id="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={(e) => handleChange("additionalInfo", e.target.value)}
                 placeholder="Any specific concerns, access arrangements, etc."
-                className="mt-1 bg-background text-foreground"
+                className={`mt-1 ${inputClass}`}
                 rows={3}
               />
             </div>
