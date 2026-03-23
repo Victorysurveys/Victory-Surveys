@@ -13,7 +13,7 @@ const WhyNeedSurveyPage = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary">
             Why do you need a survey?
           </h1>
-          <p className="mt-4 text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed text-lg">
+          <p className="mt-4 text-white max-w-2xl mx-auto leading-relaxed text-lg">
             A property survey is one of the smartest investments you can make when buying a home. Here's why.
           </p>
         </div>
