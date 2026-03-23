@@ -12,7 +12,7 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-hero-overlay/60" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="bg-brand-dark/90 rounded-lg p-8 md:p-10 max-w-lg">
+        <div className="bg-brand-dark/90 rounded-sm p-8 md:p-10 max-w-lg">
           <h1 className="text-3xl md:text-4xl font-bold text-primary leading-tight">
             Victory Surveying
           </h1>
