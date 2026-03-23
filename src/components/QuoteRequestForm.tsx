@@ -166,7 +166,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                 onValueChange={(val) => handleChange("surveyType", val)}
                 required
               >
-                <SelectTrigger className={`mt-1 ${inputClass}`}>
+                <SelectTrigger aria-label="Survey type" className={`mt-1 ${inputClass}`}>
                   <SelectValue placeholder="Select a survey type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -252,7 +252,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.propertyType}
                   onValueChange={(val) => handleChange("propertyType", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Property type" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -268,7 +268,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.propertyPrice}
                   onValueChange={(val) => handleChange("propertyPrice", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Property price range" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select price range" />
                   </SelectTrigger>
                   <SelectContent>
@@ -296,7 +296,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.numberOfBedrooms}
                   onValueChange={(val) => handleChange("numberOfBedrooms", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Number of bedrooms" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
@@ -333,7 +333,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                       }
                     }}
                   >
-                    <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectTrigger aria-label="Estate agent branch" className={`mt-1 ${inputClass}`}>
                       <SelectValue placeholder="Select local branch" />
                     </SelectTrigger>
                     <SelectContent>
