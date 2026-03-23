@@ -25,7 +25,7 @@ const Index = () => {
       <IntroSection />
       <SurveyTypes onRecommend={handleSurveyRecommend} />
       <SafeHands />
-      <WhyNeedSurvey />
+      
       <NewsInsights />
       <CtaSection />
       <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />
