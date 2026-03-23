@@ -21,15 +21,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
-      <IntroSection />
-      <SurveyTypes onRecommend={handleSurveyRecommend} />
-      <SafeHands />
-      
-      <NewsInsights />
-      <CtaSection />
-      <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />
-      <GetInTouch />
+      <main>
+        <Hero />
+        <IntroSection />
+        <SurveyTypes onRecommend={handleSurveyRecommend} />
+        <SafeHands />
+        
+        <NewsInsights />
+        <CtaSection />
+        <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />
+        <GetInTouch />
+      </main>
       <Footer />
     </div>
   );
