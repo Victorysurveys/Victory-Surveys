@@ -17,6 +17,45 @@ const surveyTypes = [
   "Not sure — please advise",
 ];
 
+const localAgentBranches = [
+  "Abbotts — Great Yarmouth",
+  "Abbotts — Norwich",
+  "Abbotts — Lowestoft",
+  "Allen & Harris — Norwich",
+  "Arnolds Keys — Norwich",
+  "Arnolds Keys — North Walsham",
+  "Bycroft — Great Yarmouth",
+  "Bycroft — Caister-on-Sea",
+  "Bycroft — Gorleston",
+  "Durrants — Beccles",
+  "Durrants — Bungay",
+  "Durrants — Acle",
+  "Ewemove — Great Yarmouth",
+  "Ewemove — Norwich",
+  "Fine & Country — Norwich",
+  "Fox & Sons — Lowestoft",
+  "Howards — Great Yarmouth",
+  "Howards — Gorleston",
+  "Howards — Caister-on-Sea",
+  "Lacy Scott & Knight — Beccles",
+  "Minors & Brady — Great Yarmouth",
+  "Minors & Brady — Norwich",
+  "Minors & Brady — Gorleston",
+  "Purplebricks — Norfolk",
+  "Purplebricks — Suffolk",
+  "Rialto — Great Yarmouth",
+  "Savills — Norwich",
+  "Sowerbys — Norwich",
+  "Sowerbys — North Norfolk",
+  "Stobart & Hurrell — Acle",
+  "Strutt & Parker — Norwich",
+  "William H Brown — Great Yarmouth",
+  "William H Brown — Norwich",
+  "William H Brown — Lowestoft",
+  "William H Brown — Gorleston",
+  "Other — not listed",
+];
+
 const propertyTypes = [
   "Detached house",
   "Semi-detached house",
@@ -250,14 +289,20 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="agentName" className={labelClass}>Estate agent name</Label>
-                <Input
-                  id="agentName"
+                <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
+                <Select
                   value={formData.agentName}
-                  onChange={(e) => handleChange("agentName", e.target.value)}
-                  placeholder="Agent name / branch"
-                  className={`mt-1 ${inputClass}`}
-                />
+                  onValueChange={(val) => handleChange("agentName", val)}
+                >
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectValue placeholder="Select local branch" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {localAgentBranches.map((branch) => (
+                      <SelectItem key={branch} value={branch}>{branch}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="agentContact" className={labelClass}>Agent phone / email</Label>
