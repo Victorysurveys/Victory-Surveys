@@ -84,7 +84,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showManualAgent, setShowManualAgent] = useState(false);
   const [formData, setFormData] = useState({
-    surveyType: "",
+    surveyType: "Not sure — please advise",
     fullName: "",
     email: "",
     phone: "",
@@ -121,7 +121,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         description: "We'll be in touch within 24 hours with your personalised quote.",
       });
       setFormData({
-        surveyType: "",
+        surveyType: "Not sure — please advise",
         fullName: "",
         email: "",
         phone: "",
@@ -264,13 +264,31 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
               </div>
               <div>
                 <Label htmlFor="propertyPrice" className={labelClass}>Property price (if known)</Label>
-                <Input
-                  id="propertyPrice"
+                <Select
                   value={formData.propertyPrice}
-                  onChange={(e) => handleChange("propertyPrice", e.target.value)}
-                  placeholder="£250,000"
-                  className={`mt-1 ${inputClass}`}
-                />
+                  onValueChange={(val) => handleChange("propertyPrice", val)}
+                >
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectValue placeholder="Select price range" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[
+                      "Under £100,000",
+                      "£100,000 – £150,000",
+                      "£150,000 – £200,000",
+                      "£200,000 – £250,000",
+                      "£250,000 – £300,000",
+                      "£300,000 – £400,000",
+                      "£400,000 – £500,000",
+                      "£500,000 – £750,000",
+                      "£750,000 – £1,000,000",
+                      "£1,000,000+",
+                      "Not sure",
+                    ].map((range) => (
+                      <SelectItem key={range} value={range}>{range}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="numberOfBedrooms" className={labelClass}>Number of bedrooms</Label>
@@ -406,13 +424,25 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="vendorName" className={labelClass}>Vendor / seller name</Label>
-                <Input
-                  id="vendorName"
-                  value={formData.vendorName}
-                  onChange={(e) => handleChange("vendorName", e.target.value)}
-                  placeholder="Vendor name"
-                  className={`mt-1 ${inputClass}`}
-                />
+                <div className="flex items-center gap-3 mt-1">
+                  <Input
+                    id="vendorName"
+                    value={formData.vendorName}
+                    onChange={(e) => handleChange("vendorName", e.target.value)}
+                    placeholder="Vendor name"
+                    className={inputClass}
+                    disabled={formData.vendorName === "Unknown / unsure"}
+                  />
+                </div>
+                <label className="flex items-center gap-2 mt-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={formData.vendorName === "Unknown / unsure"}
+                    onChange={(e) => handleChange("vendorName", e.target.checked ? "Unknown / unsure" : "")}
+                    className="accent-primary w-4 h-4"
+                  />
+                  <span className="text-sm text-muted-foreground">Unknown / unsure</span>
+                </label>
               </div>
             </div>
           </div>
