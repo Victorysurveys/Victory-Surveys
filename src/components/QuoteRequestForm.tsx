@@ -180,7 +180,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
 
           {/* Your Details */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+            <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
               Your Details
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -233,7 +233,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
 
           {/* Property Details */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+            <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
               Property Details
             </h3>
             <PostcodeFinder
@@ -311,7 +311,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
 
           {/* Agent / Vendor Details */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+            <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
               Agent / Vendor Details (if known)
             </h3>
 
@@ -347,7 +347,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                 <button
                   type="button"
                   onClick={() => setShowManualAgent(true)}
-                  className="text-sm text-primary underline hover:text-primary/80"
+                  className="text-sm text-brand-dark-text underline hover:text-brand-dark-text/80"
                 >
                   Enter details manually
                 </button>
@@ -382,7 +382,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                 <button
                   type="button"
                   onClick={() => setShowManualAgent(false)}
-                  className="text-sm text-primary underline hover:text-primary/80"
+                  className="text-sm text-brand-dark-text underline hover:text-brand-dark-text/80"
                 >
                   ← Select from local branches
                 </button>
@@ -449,7 +449,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
 
           {/* Additional Info */}
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+            <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
               Additional Information
             </h3>
             <div>
