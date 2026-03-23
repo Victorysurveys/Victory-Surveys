@@ -6,10 +6,10 @@ const IntroSection = () => {
           Home surveys to help you make an informed purchase, from £219*
         </h2>
         <p className="mt-6 text-muted-foreground leading-relaxed">
-          Buying a home can be one of the biggest financial commitments you are likely to make, so let us take away some of the stress. Victory Surveying provides expert advice, guidance, and support on all aspects of residential property surveying. Once you have found your dream home, we can step in to help you make sure you are making an informed purchase. A qualified surveyor will look over the roof, walls, floors, timbers and other aspects of the house to check whether everything's in order.
+          Let us take away the stress. Victory Surveying provides expert advice and support on all aspects of residential property surveying — helping you make an informed purchase by checking the roof, walls, floors, timbers and more.
         </p>
         <p className="mt-4 text-muted-foreground leading-relaxed">
-          Whether you are a first-time buyer or an experienced mover, you can be confident that our team of qualified surveyors will have a broad knowledge of your chosen area, types of local property, and issues to look out for. You can trust in their expertise to help you avoid costly surprises.
+          First-time buyer or experienced mover, our qualified surveyors know your area and the issues to look out for, helping you avoid costly surprises.
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
           * Prices are inclusive of VAT. Quotes will vary depending on the survey type, property location and property purchase price.
