@@ -264,13 +264,31 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
               </div>
               <div>
                 <Label htmlFor="propertyPrice" className={labelClass}>Property price (if known)</Label>
-                <Input
-                  id="propertyPrice"
+                <Select
                   value={formData.propertyPrice}
-                  onChange={(e) => handleChange("propertyPrice", e.target.value)}
-                  placeholder="£250,000"
-                  className={`mt-1 ${inputClass}`}
-                />
+                  onValueChange={(val) => handleChange("propertyPrice", val)}
+                >
+                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                    <SelectValue placeholder="Select price range" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[
+                      "Under £100,000",
+                      "£100,000 – £150,000",
+                      "£150,000 – £200,000",
+                      "£200,000 – £250,000",
+                      "£250,000 – £300,000",
+                      "£300,000 – £400,000",
+                      "£400,000 – £500,000",
+                      "£500,000 – £750,000",
+                      "£750,000 – £1,000,000",
+                      "£1,000,000+",
+                      "Not sure",
+                    ].map((range) => (
+                      <SelectItem key={range} value={range}>{range}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="numberOfBedrooms" className={labelClass}>Number of bedrooms</Label>
