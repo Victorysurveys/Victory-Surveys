@@ -146,10 +146,10 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   return (
     <section id="quote-request" className="py-16 md:py-20 bg-brand-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-dark-text text-center">
           Request a Quote
         </h2>
-        <p className="mt-2 text-center text-primary/60 mb-10">
+        <p className="mt-2 text-center text-brand-dark-text-muted mb-10">
           Fill in the details below and we'll get back to you with a personalised quote.
         </p>
 
