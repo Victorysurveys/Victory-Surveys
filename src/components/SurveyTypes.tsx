@@ -95,21 +95,21 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
             </div>
           ))}
 
-          {/* Not listed CTA card */}
-          <div className="bg-card rounded-lg border-2 border-dashed border-primary/30 shadow-sm flex flex-col overflow-hidden items-center justify-center p-8 text-center">
-            <MessageCircle className="w-10 h-10 text-primary mb-4" />
-            <h3 className="text-lg font-bold text-foreground">Not sure what you need?</h3>
-            <p className="mt-3 text-muted-foreground leading-relaxed text-sm">
-              If your requirements aren't listed above, get in touch and we'll discuss the best option for your property.
+        </div>
+
+        {/* Not listed CTA bar */}
+        <div className="mt-8 bg-card rounded-lg border-2 border-dashed border-primary/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
+          <div className="flex items-center gap-3">
+            <MessageCircle className="w-6 h-6 text-primary flex-shrink-0" />
+            <p className="text-foreground font-semibold">
+              Not sure what you need, or want to access our consultancy services?
             </p>
-            <div className="mt-6">
-              <Button asChild size="sm" className="gap-2">
-                <a href="#get-in-touch">
-                  Contact Us <ArrowRight className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
           </div>
+          <Button asChild size="sm" className="gap-2 shrink-0">
+            <a href="#get-in-touch">
+              Contact Us <ArrowRight className="w-4 h-4" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
