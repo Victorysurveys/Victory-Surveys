@@ -15,14 +15,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 11% 15%;
 
-    --primary: 42 85% 45%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 42 85% 29%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 40 20% 96%;
     --secondary-foreground: 210 11% 15%;
 
     --muted: 40 15% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted-foreground: 210 10% 38%;
 
     --accent: 42 85% 45%;
     --accent-foreground: 0 0% 10%;
@@ -38,7 +38,9 @@
 
     --hero-overlay: 0 0% 10%;
     --brand-dark: 0 0% 12%;
-    --brand-gold: 42 85% 45%;
+    --brand-gold: 42 85% 29%;
+    --brand-dark-text: 40 20% 80%;
+    --brand-dark-text-muted: 40 15% 60%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

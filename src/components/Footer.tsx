@@ -9,19 +9,19 @@ const Footer = () => {
             <img src={logo} alt="Victory Surveying" className="h-10 w-auto brightness-200" />
           </div>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-sm text-primary/60 hover:text-primary transition-colors">
+            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm text-primary/60 hover:text-primary transition-colors">
+            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Terms of Use
             </a>
-            <a href="#" className="text-sm text-primary/60 hover:text-primary transition-colors">
+            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Cookie Policy
             </a>
           </div>
         </div>
         <div className="mt-6 text-center md:text-left">
-          <p className="text-sm text-primary/50">
+          <p className="text-sm text-brand-dark-text-muted">
             © {new Date().getFullYear()} Victory Surveying. All rights reserved. RPSA Regulated.
           </p>
         </div>

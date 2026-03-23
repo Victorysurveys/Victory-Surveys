@@ -50,6 +50,8 @@ export default {
         "hero-overlay": "hsl(var(--hero-overlay))",
         "brand-dark": "hsl(var(--brand-dark))",
         "brand-gold": "hsl(var(--brand-gold))",
+        "brand-dark-text": "hsl(var(--brand-dark-text))",
+        "brand-dark-text-muted": "hsl(var(--brand-dark-text-muted))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

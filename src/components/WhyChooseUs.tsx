@@ -17,10 +17,10 @@ const WhyChooseUs = () => {
               key={stat.number}
               className="text-center bg-brand-dark rounded-sm p-8"
             >
-              <p className="text-4xl md:text-5xl font-bold text-primary">
+              <p className="text-4xl md:text-5xl font-bold text-brand-dark-text">
                 {stat.number}
               </p>
-              <p className="mt-4 text-primary/70 leading-relaxed text-sm">
+              <p className="mt-4 text-brand-dark-text-muted leading-relaxed text-sm">
                 {stat.label}
               </p>
             </div>
