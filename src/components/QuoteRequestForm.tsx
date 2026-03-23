@@ -268,7 +268,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.propertyPrice}
                   onValueChange={(val) => handleChange("propertyPrice", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Property price range" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select price range" />
                   </SelectTrigger>
                   <SelectContent>
