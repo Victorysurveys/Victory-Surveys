@@ -82,6 +82,7 @@ interface QuoteRequestFormProps {
 const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showManualAgent, setShowManualAgent] = useState(false);
   const [formData, setFormData] = useState({
     surveyType: "",
     fullName: "",
@@ -93,7 +94,8 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     propertyPrice: "",
     numberOfBedrooms: "",
     agentName: "",
-    agentContact: "",
+    agentPhone: "",
+    agentEmail: "",
     vendorName: "",
     additionalInfo: "",
   });
