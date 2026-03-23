@@ -17,7 +17,7 @@ const myths = [
   {
     myth: "Surveys are too expensive and not worth the money",
     fact: "Think of a survey as an investment. A survey can give you peace of mind knowing that there are no nasty surprises waiting to be discovered at a later date that could cost you a fortune in repairs! The cost of a survey is typically a fraction of 1% of the property price — far less than even a minor repair bill.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Financial planning and investment concept",
   },
 ];
