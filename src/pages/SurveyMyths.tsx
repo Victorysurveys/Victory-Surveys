@@ -5,19 +5,19 @@ const myths = [
   {
     myth: "I already received a valuation, so don't need a survey!",
     fact: "A valuation will tell you the property's worth, but a survey can highlight issues with the property, along with a lot of other important information. A mortgage valuation is carried out for the lender's benefit — not yours. It won't tell you about damp, structural movement, roof defects, or any of the things that could end up costing you thousands.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Property valuation concept with house keys and documents",
   },
   {
     myth: "If issues are found, the sale will fall through",
     fact: "If issues are uncovered during the survey, you can get repair quotes and choose to make an informed decision or discuss the asking price. Most surveys do identify some issues — that's the whole point. Knowledge is power, and being aware of problems puts you in a stronger negotiating position rather than walking away.",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Property negotiation and discussion",
   },
   {
     myth: "Surveys are too expensive and not worth the money",
     fact: "Think of a survey as an investment. A survey can give you peace of mind knowing that there are no nasty surprises waiting to be discovered at a later date that could cost you a fortune in repairs! The cost of a survey is typically a fraction of 1% of the property price — far less than even a minor repair bill.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&fm=webp&q=75",
     imageAlt: "Financial planning and investment concept",
   },
 ];
@@ -57,6 +57,8 @@ const SurveyMyths = () => {
                     alt={item.imageAlt}
                     className="w-full h-64 md:h-80 object-cover"
                     loading="lazy"
+                    width={600}
+                    height={400}
                   />
                 </div>
               </div>

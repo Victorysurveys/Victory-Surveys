@@ -78,6 +78,8 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
                 alt={survey.title}
                 className="w-full h-48 object-cover object-center"
                 loading="lazy"
+                width={400}
+                height={192}
               />
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-lg font-bold text-foreground">{survey.title}</h3>
