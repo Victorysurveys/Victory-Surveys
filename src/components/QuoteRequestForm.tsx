@@ -131,10 +131,12 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
         propertyPrice: "",
         numberOfBedrooms: "",
         agentName: "",
-        agentContact: "",
+        agentPhone: "",
+        agentEmail: "",
         vendorName: "",
         additionalInfo: "",
       });
+      setShowManualAgent(false);
     }, 1000);
   };
 
