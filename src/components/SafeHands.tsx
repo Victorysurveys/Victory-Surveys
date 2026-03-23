@@ -59,7 +59,7 @@ const SafeHands = () => {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-primary/30"
+              className="bg-card border border-border rounded-sm p-6 transition-all duration-300 hover:shadow-lg hover:border-primary/30"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center">

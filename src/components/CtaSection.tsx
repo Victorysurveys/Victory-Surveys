@@ -53,7 +53,7 @@ const CtaSection = () => {
     <section className="py-16 md:py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Location bar */}
-        <div className="mb-10 bg-primary/10 border border-primary/20 rounded-lg px-6 py-4 flex items-center justify-center gap-3 text-center">
+        <div className="mb-10 bg-primary/10 border border-primary/20 rounded-sm px-6 py-4 flex items-center justify-center gap-3 text-center">
           <MapPin className="w-5 h-5 text-primary shrink-0" />
           {loading ? (
             <span className="flex items-center gap-2 text-muted-foreground">
@@ -97,11 +97,11 @@ const CtaSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="rounded-lg overflow-hidden">
+          <div className="rounded-sm overflow-hidden">
             <img
               src={surveyorPhoto}
               alt="Your local surveyor"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-sm"
             />
           </div>
           <div>

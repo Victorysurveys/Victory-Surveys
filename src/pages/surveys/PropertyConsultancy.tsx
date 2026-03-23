@@ -22,7 +22,7 @@ const PropertyConsultancy = () => {
             to help.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our qualified RPSA-regulated surveyors provide expert advice across a wide range of
+            Our qualified surveyors provide expert advice across a wide range of
             property matters, drawing on extensive local knowledge and professional experience.
           </p>
 
