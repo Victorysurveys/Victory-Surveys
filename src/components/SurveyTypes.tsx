@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
-import bricksSurveyImg from "@/assets/bricks-survey.jpg";
-import snaggingSurveyImg from "@/assets/snagging-survey.png";
-import btlSurveyImg from "@/assets/btl-survey.jpg";
-import buildingSurveyImg from "@/assets/building-survey.jpg";
+import bricksSurveyImg from "@/assets/bricks-survey.webp";
+import snaggingSurveyImg from "@/assets/snagging-survey.webp";
+import btlSurveyImg from "@/assets/btl-survey.webp";
+import buildingSurveyImg from "@/assets/building-survey.webp";
 
 const surveys = [
   {

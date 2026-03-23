@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import surveyorPhoto from "@/assets/surveyor-photo.jpg";
+import surveyorPhoto from "@/assets/surveyor-photo.webp";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Loader2 } from "lucide-react";
 
