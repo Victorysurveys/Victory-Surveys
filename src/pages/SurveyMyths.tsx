@@ -57,6 +57,8 @@ const SurveyMyths = () => {
                     alt={item.imageAlt}
                     className="w-full h-64 md:h-80 object-cover"
                     loading="lazy"
+                    width={600}
+                    height={400}
                   />
                 </div>
               </div>
