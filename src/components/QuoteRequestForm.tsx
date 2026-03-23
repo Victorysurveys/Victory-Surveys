@@ -424,13 +424,25 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="vendorName" className={labelClass}>Vendor / seller name</Label>
-                <Input
-                  id="vendorName"
-                  value={formData.vendorName}
-                  onChange={(e) => handleChange("vendorName", e.target.value)}
-                  placeholder="Vendor name"
-                  className={`mt-1 ${inputClass}`}
-                />
+                <div className="flex items-center gap-3 mt-1">
+                  <Input
+                    id="vendorName"
+                    value={formData.vendorName}
+                    onChange={(e) => handleChange("vendorName", e.target.value)}
+                    placeholder="Vendor name"
+                    className={inputClass}
+                    disabled={formData.vendorName === "Unknown / unsure"}
+                  />
+                </div>
+                <label className="flex items-center gap-2 mt-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={formData.vendorName === "Unknown / unsure"}
+                    onChange={(e) => handleChange("vendorName", e.target.checked ? "Unknown / unsure" : "")}
+                    className="accent-primary w-4 h-4"
+                  />
+                  <span className="text-sm text-muted-foreground">Unknown / unsure</span>
+                </label>
               </div>
             </div>
           </div>
