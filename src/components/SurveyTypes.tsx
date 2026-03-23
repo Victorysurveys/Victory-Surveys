@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
-import conditionSurveyImg from "@/assets/condition-survey.jpeg";
+import bricksSurveyImg from "@/assets/bricks-survey.jpg";
+import btlSurveyImg from "@/assets/btl-survey.jpg";
+import buildingSurveyImg from "@/assets/building-survey.jpg";
 
 const surveys = [
   {
@@ -10,7 +12,7 @@ const surveys = [
     slug: "/surveys/home-buyer-condition",
     description:
       "For traditional properties that are modern, of standard construction and not too big or complicated.",
-    image: conditionSurveyImg,
+    image: bricksSurveyImg,
     popular: true,
   },
   {
@@ -18,7 +20,7 @@ const surveys = [
     slug: "/surveys/building",
     description:
       "Ideally suited to larger, more complex, older, extended or higher value homes.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+    image: buildingSurveyImg,
     popular: false,
   },
   {
@@ -26,7 +28,7 @@ const surveys = [
     slug: "/surveys/buy-to-let",
     description:
       "The only survey of its type, designed for properties let to tenants. ONLY available from RPSA members.",
-    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&h=400&fit=crop",
+    image: btlSurveyImg,
     popular: false,
   },
   {
