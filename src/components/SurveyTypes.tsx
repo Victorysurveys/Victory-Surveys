@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
 import conditionSurveyImg from "@/assets/condition-survey.jpeg";
@@ -37,14 +37,6 @@ const surveys = [
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop",
     popular: false,
   },
-  {
-    title: "Property Consultancy",
-    slug: "/surveys/property-consultancy",
-    description:
-      "Bespoke consultancy services tailored to your specific property needs.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
-    popular: false,
-  },
 ];
 
 interface SurveyTypesProps {
@@ -53,7 +45,7 @@ interface SurveyTypesProps {
 
 const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
   return (
-    <section id="choose-survey" className="py-16 bg-secondary">
+    <section id="choose-survey" className="py-16 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">
           Our Survey Services
@@ -102,6 +94,22 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
               </div>
             </div>
           ))}
+
+          {/* Not listed CTA card */}
+          <div className="bg-card rounded-lg border-2 border-dashed border-primary/30 shadow-sm flex flex-col overflow-hidden items-center justify-center p-8 text-center">
+            <MessageCircle className="w-10 h-10 text-primary mb-4" />
+            <h3 className="text-lg font-bold text-foreground">Not sure what you need?</h3>
+            <p className="mt-3 text-muted-foreground leading-relaxed text-sm">
+              If your requirements aren't listed above, get in touch and we'll discuss the best option for your property.
+            </p>
+            <div className="mt-6">
+              <Button asChild size="sm" className="gap-2">
+                <a href="#get-in-touch">
+                  Contact Us <ArrowRight className="w-4 h-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
