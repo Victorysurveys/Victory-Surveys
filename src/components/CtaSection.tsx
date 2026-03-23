@@ -106,8 +106,11 @@ const CtaSection = () => {
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Your Local Surveyor
+              Your Local Surveyor (Jamie)
             </h2>
+            <p className="text-sm text-muted-foreground font-medium tracking-wide">
+              MCABE, MCIOB, BSc(Hons)
+            </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               As a local, independent surveyor covering Norfolk and Suffolk, I understand the unique characteristics of properties in our region — from period cottages to coastal homes and new-build estates.
             </p>
