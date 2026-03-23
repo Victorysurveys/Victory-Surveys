@@ -46,6 +46,34 @@ const GetInTouch = () => {
           Please contact Victory Surveying at any time.
         </p>
 
+        {/* Direct contact info */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <a
+            href={PHONE_NUMBER}
+            className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            (+44) 07874 062271
+          </a>
+          <a
+            href={`mailto:${RECIPIENT_EMAIL}`}
+            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
+          >
+            <Mail className="w-5 h-5" />
+            Info@victorysurveying.co.uk
+          </a>
+          <a
+            href="https://victorysurveying.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
+          >
+            <Globe className="w-5 h-5" />
+            victorysurveying.co.uk
+          </a>
+        </div>
+
+        {/* Contact Us button */}
         <div className="mt-8 flex flex-col items-center gap-4">
           <Button
             size="lg"
@@ -75,16 +103,6 @@ const GetInTouch = () => {
               </Button>
             </div>
           )}
-
-          <a
-            href="https://victorysurveying.co.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
-          >
-            <Globe className="w-5 h-5" />
-            victorysurveying.co.uk
-          </a>
         </div>
 
         <p className="mt-6 text-sm text-muted-foreground">
