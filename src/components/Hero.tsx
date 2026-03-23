@@ -20,7 +20,7 @@ const Hero = () => {
             Property advice so good it feels like a win
           </p>
           <p className="mt-3 text-xl font-semibold text-primary">
-            Surveys from £399*
+            Surveys from £219*
           </p>
           <Button
             asChild

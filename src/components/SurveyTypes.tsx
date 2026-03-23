@@ -10,7 +10,8 @@ const surveys = [
     slug: "/surveys/home-buyer-condition",
     description:
       "For traditional properties that are modern, of standard construction and not too big or complicated.",
-    image: conditionSurveyImg,
+    image: conditionSurveyImg + "?w=600&h=400&fit=cover",
+    imageClass: "object-cover object-center",
     popular: true,
   },
   {
