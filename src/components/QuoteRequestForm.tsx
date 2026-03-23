@@ -84,7 +84,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showManualAgent, setShowManualAgent] = useState(false);
   const [formData, setFormData] = useState({
-    surveyType: "",
+    surveyType: "Not sure — please advise",
     fullName: "",
     email: "",
     phone: "",
