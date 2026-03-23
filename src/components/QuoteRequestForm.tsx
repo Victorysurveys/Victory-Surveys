@@ -296,7 +296,7 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
                   value={formData.numberOfBedrooms}
                   onValueChange={(val) => handleChange("numberOfBedrooms", val)}
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
+                  <SelectTrigger aria-label="Number of bedrooms" className={`mt-1 ${inputClass}`}>
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
