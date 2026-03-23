@@ -296,33 +296,114 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
             <h3 className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
               Agent / Vendor Details (if known)
             </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
-                <Select
-                  value={formData.agentName}
-                  onValueChange={(val) => handleChange("agentName", val)}
+
+            {!showManualAgent ? (
+              <div className="space-y-3">
+                <div>
+                  <Label htmlFor="agentBranch" className={labelClass}>Estate agent branch</Label>
+                  <Select
+                    value={formData.agentName}
+                    onValueChange={(val) => {
+                      const branch = localAgentBranches.find((b) => b.name === val);
+                      if (branch) {
+                        setFormData((prev) => ({
+                          ...prev,
+                          agentName: branch.name,
+                          agentPhone: branch.phone,
+                          agentEmail: branch.email,
+                        }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger className={`mt-1 ${inputClass}`}>
+                      <SelectValue placeholder="Select local branch" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {localAgentBranches.map((branch) => (
+                        <SelectItem key={branch.name} value={branch.name}>{branch.name}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowManualAgent(true)}
+                  className="text-sm text-primary underline hover:text-primary/80"
                 >
-                  <SelectTrigger className={`mt-1 ${inputClass}`}>
-                    <SelectValue placeholder="Select local branch" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {localAgentBranches.map((branch) => (
-                      <SelectItem key={branch} value={branch}>{branch}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  Enter details manually
+                </button>
+
+                {formData.agentName && (
+                  <div className="grid md:grid-cols-2 gap-4 bg-muted/10 border border-border/30 rounded-lg p-4">
+                    <div>
+                      <Label htmlFor="agentPhone" className={labelClass}>Agent phone</Label>
+                      <Input
+                        id="agentPhone"
+                        value={formData.agentPhone}
+                        onChange={(e) => handleChange("agentPhone", e.target.value)}
+                        placeholder="Phone number"
+                        className={`mt-1 ${inputClass}`}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="agentEmail" className={labelClass}>Agent email</Label>
+                      <Input
+                        id="agentEmail"
+                        value={formData.agentEmail}
+                        onChange={(e) => handleChange("agentEmail", e.target.value)}
+                        placeholder="Email address"
+                        className={`mt-1 ${inputClass}`}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
-              <div>
-                <Label htmlFor="agentContact" className={labelClass}>Agent phone / email</Label>
-                <Input
-                  id="agentContact"
-                  value={formData.agentContact}
-                  onChange={(e) => handleChange("agentContact", e.target.value)}
-                  placeholder="Contact details"
-                  className={`mt-1 ${inputClass}`}
-                />
+            ) : (
+              <div className="space-y-3">
+                <button
+                  type="button"
+                  onClick={() => setShowManualAgent(false)}
+                  className="text-sm text-primary underline hover:text-primary/80"
+                >
+                  ← Select from local branches
+                </button>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="agentNameManual" className={labelClass}>Estate agent name</Label>
+                    <Input
+                      id="agentNameManual"
+                      value={formData.agentName}
+                      onChange={(e) => handleChange("agentName", e.target.value)}
+                      placeholder="Agent name / branch"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="agentPhoneManual" className={labelClass}>Agent phone</Label>
+                    <Input
+                      id="agentPhoneManual"
+                      value={formData.agentPhone}
+                      onChange={(e) => handleChange("agentPhone", e.target.value)}
+                      placeholder="Phone number"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="agentEmailManual" className={labelClass}>Agent email</Label>
+                    <Input
+                      id="agentEmailManual"
+                      value={formData.agentEmail}
+                      onChange={(e) => handleChange("agentEmail", e.target.value)}
+                      placeholder="Email address"
+                      className={`mt-1 ${inputClass}`}
+                    />
+                  </div>
+                </div>
               </div>
+            )}
+
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="vendorName" className={labelClass}>Vendor / seller name</Label>
                 <Input
