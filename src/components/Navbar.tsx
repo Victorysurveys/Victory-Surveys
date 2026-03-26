@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border">
+    <nav className="sticky top-0 z-50 bg-brand-dark border-b border-brand-dark-text/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
                 >
                   {link.label}
                 </a>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-brand-dark-text"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -64,14 +64,14 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="md:hidden border-t border-brand-dark-text/10 bg-brand-dark">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) =>
               link.href.startsWith("/") && !link.href.includes("#") ? (
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -80,7 +80,7 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
