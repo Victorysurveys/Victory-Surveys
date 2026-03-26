@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="md:hidden border-t border-brand-dark-text/10 bg-brand-dark">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) =>
               link.href.startsWith("/") && !link.href.includes("#") ? (
