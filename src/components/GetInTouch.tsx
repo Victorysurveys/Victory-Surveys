@@ -43,7 +43,7 @@ const GetInTouch = () => {
           Get in touch
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Please contact Victory Surveying at any time.
+          Please contact Victory Surveys at any time.
         </p>
 
         {/* Direct contact info */}

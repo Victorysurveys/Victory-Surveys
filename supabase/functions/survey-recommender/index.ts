@@ -6,7 +6,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const systemPrompt = `You are a friendly survey advisor for Victory Surveying, an RPSA-regulated surveying firm. Your job is to help homebuyers choose the right survey by asking them questions one at a time.
+const systemPrompt = `You are a friendly survey advisor for Victory Surveys, an RPSA-regulated surveying firm. Your job is to help homebuyers choose the right survey by asking them questions one at a time.
 
 You must recommend ONE of these survey types:
 1. **Home Buyer / Condition Survey** – For modern, standard construction properties that aren't too big or complicated. Includes colour-coded condition ratings, photographs, jargon-free reporting, and a full debrief.
