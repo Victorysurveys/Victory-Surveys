@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-hero-overlay/60" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="bg-brand-dark/90 rounded-sm p-8 md:p-10 max-w-lg">
-          <img src={heroLogo} alt="Victory Surveys" className="h-24 md:h-32 w-auto" width={400} height={400} />
+          <img src={heroLogo} alt="Victory Surveys" className="w-full max-w-md" width={400} height={400} />
           <p className="mt-2 text-lg text-brand-dark-text-muted">
             Property advice so good it feels like a win
           </p>
