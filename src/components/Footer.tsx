@@ -1,4 +1,4 @@
-import logo from "@/assets/victory-logo.webp";
+import logo from "@/assets/victory-logo-gold.png";
 
 const Footer = () => {
   return (
