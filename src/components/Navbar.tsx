@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Victory Surveys" className="h-10 w-auto" width={120} height={40} />
+            <img src={logo} alt="Victory Surveys" className="h-8 w-auto" width={267} height={80} />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
