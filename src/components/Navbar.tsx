@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/victory-logo-gold.png";
 
