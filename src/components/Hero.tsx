@@ -1,7 +1,7 @@
 const heroImage = "/hero-surveying.webp";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroLogo from "@/assets/victory-logo-white.jpeg";
+import heroLogo from "@/assets/victory-logo-white.png";
 
 const Hero = () => {
   return (
