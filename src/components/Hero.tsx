@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="bg-brand-dark/90 rounded-sm p-8 md:p-10 max-w-lg">
           <h1 className="text-3xl md:text-4xl font-bold text-brand-dark-text leading-tight">
-            Victory Surveying
+            Victory Surveys
           </h1>
           <p className="mt-2 text-lg text-brand-dark-text-muted">
             Property advice so good it feels like a win

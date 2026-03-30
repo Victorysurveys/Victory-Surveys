@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="mt-6 text-center md:text-left">
           <p className="text-sm text-brand-dark-text-muted">
-            © {new Date().getFullYear()} Victory Surveying. All rights reserved. RPSA Regulated.
+            © {new Date().getFullYear()} Victory Surveys. All rights reserved. RPSA Regulated.
           </p>
         </div>
       </div>
