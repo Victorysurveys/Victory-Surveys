@@ -45,13 +45,13 @@ const SafeHands = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">
-            Why Victory Surveying
+            Why Victory Surveys
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Where it matters most
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Victory Surveying is regulated by the RPSA — the industry's leading body for independent residential surveyors. Qualified, chartered, and committed to you.
+            Victory Surveys is regulated by the RPSA — the industry's leading body for independent residential surveyors. Qualified, chartered, and committed to you.
           </p>
         </div>
 

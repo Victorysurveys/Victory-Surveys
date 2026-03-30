@@ -1,4 +1,4 @@
-import logo from "@/assets/victory-logo.webp";
+import logo from "@/assets/victory-logo-gold.png";
 
 const Footer = () => {
   return (
@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <img src={logo} alt="Victory Surveying" className="h-10 w-auto brightness-200" width={40} height={40} />
+            <img src={logo} alt="Victory Surveys" className="h-10 w-auto" width={120} height={40} />
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="mt-6 text-center md:text-left">
           <p className="text-sm text-brand-dark-text-muted">
-            © {new Date().getFullYear()} Victory Surveying. All rights reserved. RPSA Regulated.
+            © {new Date().getFullYear()} Victory Surveys. All rights reserved. RPSA Regulated.
           </p>
         </div>
       </div>
