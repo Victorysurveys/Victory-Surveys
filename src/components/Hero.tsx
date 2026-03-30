@@ -13,24 +13,24 @@ const Hero = () => {
         fetchPriority="high"
       />
       <div className="absolute inset-0 bg-hero-overlay/60" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="bg-brand-dark/50 backdrop-blur-sm rounded-sm p-8 md:p-10 max-w-lg">
-          <img src={heroLogo} alt="Victory Surveys" className="w-full max-w-md" width={400} height={400} />
-          <p className="mt-2 text-lg text-brand-dark-text-muted">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-start justify-center gap-6">
+        <img src={heroLogo} alt="Victory Surveys" className="w-full max-w-lg drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]" width={400} height={400} />
+        <div className="flex flex-col gap-1">
+          <p className="text-lg text-white drop-shadow-md">
             Property advice so good it feels like a win
           </p>
-          <p className="mt-3 text-xl font-semibold text-brand-dark-text">
+          <p className="text-xl font-semibold text-white drop-shadow-md">
             Surveys from £219*
           </p>
-          <Button
-            asChild
-            className="mt-6 gap-2 font-semibold"
-          >
-            <a href="#quote-request">
-              Request a quote <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
         </div>
+        <Button
+          asChild
+          className="gap-2 font-semibold"
+        >
+          <a href="#quote-request">
+            Request a quote <ArrowRight className="w-4 h-4" />
+          </a>
+        </Button>
       </div>
     </section>
   );
