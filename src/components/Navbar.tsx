@@ -95,11 +95,18 @@ const Navbar = () => {
               )
             )}
             <a
+              href="tel:01493000000"
+              className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 000000</span>
+            </a>
+            <a
               href="/#quote-request"
               className="block text-sm font-semibold text-primary"
               onClick={() => setIsOpen(false)}
             >
-              Get a quote
+              <span className="flex items-center gap-2"><MessageSquare className="w-4 h-4" /> Get a quote</span>
             </a>
           </div>
         </div>
