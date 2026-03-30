@@ -43,7 +43,14 @@ const Navbar = () => {
             )}
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:01493000000"
+              className="flex items-center gap-2 text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              01493 000000
+            </a>
             <a
               href="/#quote-request"
               className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
