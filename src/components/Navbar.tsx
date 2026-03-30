@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/victory-logo-gold.png";
 
@@ -43,7 +43,14 @@ const Navbar = () => {
             )}
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:01493000000"
+              className="flex items-center gap-2 text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              01493 000000
+            </a>
             <a
               href="/#quote-request"
               className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
@@ -88,11 +95,18 @@ const Navbar = () => {
               )
             )}
             <a
+              href="tel:01493000000"
+              className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 000000</span>
+            </a>
+            <a
               href="/#quote-request"
               className="block text-sm font-semibold text-primary"
               onClick={() => setIsOpen(false)}
             >
-              Get a quote
+              <span className="flex items-center gap-2"><MessageSquare className="w-4 h-4" /> Get a quote</span>
             </a>
           </div>
         </div>
