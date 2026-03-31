@@ -94,11 +94,6 @@ const QuoteRequestForm = () => {
     additionalInfo: "",
   });
 
-  useEffect(() => {
-    if (preSelectedSurvey) {
-      setFormData((prev) => ({ ...prev, surveyType: preSelectedSurvey }));
-    }
-  }, [preSelectedSurvey]);
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));

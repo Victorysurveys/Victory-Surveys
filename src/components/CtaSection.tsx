@@ -106,10 +106,13 @@ const CtaSection = () => {
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Your Local Surveyor (Jamie)
+              Your Local Surveyor — Jamie
             </h2>
             <p className="text-sm text-muted-foreground font-medium tracking-wide">
-              MCABE, MCIOB, BSc(Hons)
+              MCABE, MCIOB, BSc(Hons) |{" "}
+              <a href="tel:+4407874062271" className="text-primary hover:underline">
+                (+44) 07874 062271
+              </a>
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               I started my career 9 years ago working as a building inspector, checking all sorts of projects. I then took the time to earn a surveying degree and professional certifications. Everything I've done is built on a genuine love of buildings, construction and helping people in and around their homes. With me it's no fluff — just friendly, direct contact.
