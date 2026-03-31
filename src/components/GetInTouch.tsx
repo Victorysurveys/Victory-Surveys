@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "Info@victorysurveying.co.uk";
+const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const GetInTouch = () => {
   const [showOptions, setShowOptions] = useState(false);
