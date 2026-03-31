@@ -44,15 +44,9 @@ const SafeHands = () => {
     <section id="why-choose-us" className="py-16 md:py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">
-            Why Victory Surveys
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Where it matters most
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Victory Surveys is regulated by the RPSA — the industry's leading body for independent residential surveyors. Qualified, chartered, and committed to you.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

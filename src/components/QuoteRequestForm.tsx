@@ -10,10 +10,8 @@ import PostcodeFinder from "@/components/PostcodeFinder";
 
 const surveyTypes = [
   "Home Buyer / Condition Survey",
-  "Building Survey",
-  "Buy To Let Survey",
-  "New-build Snagging Inspection",
-  "Property Consultancy",
+  "Single Defect Report / Item",
+  "Consultancy Services",
   "Not sure — please advise",
 ];
 

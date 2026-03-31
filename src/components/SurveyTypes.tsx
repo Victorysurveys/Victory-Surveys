@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
 import bricksSurveyImg from "@/assets/bricks-survey.webp";
-import snaggingSurveyImg from "@/assets/snagging-survey.webp";
-import btlSurveyImg from "@/assets/btl-survey.webp";
 import buildingSurveyImg from "@/assets/building-survey.webp";
+import btlSurveyImg from "@/assets/btl-survey.webp";
 
 const surveys = [
   {
@@ -15,29 +14,22 @@ const surveys = [
       "For traditional properties that are modern, of standard construction and not too big or complicated.",
     image: bricksSurveyImg,
     popular: true,
+    popularLabel: "Flagship Survey",
   },
   {
-    title: "Building Survey",
+    title: "Single Defect Report / Item",
     slug: "/surveys/building",
     description:
-      "Ideally suited to larger, more complex, older, extended or higher value homes.",
+      "A focused inspection on a specific defect or concern within a property.",
     image: buildingSurveyImg,
     popular: false,
   },
   {
-    title: "Buy To Let Survey",
-    slug: "/surveys/buy-to-let",
+    title: "Consultancy Services",
+    slug: "/surveys/property-consultancy",
     description:
-      "The only survey of its type, designed for properties let to tenants. ONLY available from RPSA members.",
+      "Bespoke property consultancy tailored to your specific needs — from defect advice to development potential.",
     image: btlSurveyImg,
-    popular: false,
-  },
-  {
-    title: "New-build Snagging Inspection",
-    slug: "/surveys/new-build-snagging",
-    description:
-      "A must for any newly constructed home. Based on industry-compatible standards.",
-    image: snaggingSurveyImg,
     popular: false,
   },
 ];
@@ -70,7 +62,7 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
             >
               {survey.popular && (
                 <span className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
-                  Most Popular
+                  {(survey as any).popularLabel || "Flagship Survey"}
                 </span>
               )}
               <img
@@ -101,20 +93,6 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
           ))}
         </div>
 
-        {/* Not listed CTA bar */}
-        <div className="mt-8 bg-card rounded-sm border-2 border-dashed border-primary/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
-          <div className="flex items-center gap-3">
-            <MessageCircle className="w-6 h-6 text-primary flex-shrink-0" />
-            <p className="text-foreground font-semibold">
-              Not sure what you need, or want to access our consultancy services?
-            </p>
-          </div>
-          <Button asChild size="sm" className="gap-2 shrink-0 rounded-sm">
-            <a href="#get-in-touch">
-              Contact Us <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
