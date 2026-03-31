@@ -7,9 +7,8 @@ import { Link } from "react-router-dom";
 const features = [
   "Focused inspection on a specific defect or concern",
   "Clear, detailed reporting on the issue identified",
-  "Expert advice on recommended repair actions",
+  "Guiding next steps for repairs",
   "Assessment of potential impact on the property",
-  "Cost guidance for rectifying the defect",
 ];
 
 const SingleDefect = () => {
