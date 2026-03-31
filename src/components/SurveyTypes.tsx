@@ -94,20 +94,6 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
           ))}
         </div>
 
-        {/* Not listed CTA bar */}
-        <div className="mt-8 bg-card rounded-sm border-2 border-dashed border-primary/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
-          <div className="flex items-center gap-3">
-            <MessageCircle className="w-6 h-6 text-primary flex-shrink-0" />
-            <p className="text-foreground font-semibold">
-              Not sure what you need, or want to access our consultancy services?
-            </p>
-          </div>
-          <Button asChild size="sm" className="gap-2 shrink-0 rounded-sm">
-            <a href="#get-in-touch">
-              Contact Us <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );

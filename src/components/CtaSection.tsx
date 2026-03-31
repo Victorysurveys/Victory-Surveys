@@ -112,10 +112,7 @@ const CtaSection = () => {
               MCABE, MCIOB, BSc(Hons)
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              As a local, independent surveyor covering Norfolk and Suffolk, I've been involved in checking properties since 2019 — from new builds to period cottages, coastal homes and everything in between.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              You'll deal directly with me throughout the entire process. No call centres, no being passed around — just straightforward, personal service from a qualified RPSA surveyor who knows your area inside out.
+              I started my career 9 years ago working as a building inspector, checking all sorts of projects. I then took the time to earn a surveying degree and professional certifications. Everything I've done is built on a genuine love of buildings, construction and helping people in and around their homes. With me it's no fluff — just friendly, direct contact.
             </p>
             <Button asChild className="mt-8 gap-2">
               <a href="#quote-request">

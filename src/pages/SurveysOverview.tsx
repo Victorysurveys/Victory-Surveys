@@ -12,28 +12,16 @@ const surveys = [
       "A survey report format designed to reflect the condition of a traditional property that is more modern, of standard construction and not too big or complicated.",
   },
   {
-    title: "Building Survey",
+    title: "Single Defect Report / Item",
     slug: "/surveys/building",
     description:
-      "Ideally suited to larger, more complex, older, extended or higher value homes. The most comprehensive survey available.",
+      "A focused inspection on a specific defect or concern within a property, providing clear advice on the issue and recommended actions.",
   },
   {
-    title: "Buy To Let Survey",
-    slug: "/surveys/buy-to-let",
-    description:
-      "The only survey of its type, designed for a traditional property that is, or will be, let to tenants. ONLY available from RPSA members.",
-  },
-  {
-    title: "New-build Snagging Inspection",
-    slug: "/surveys/new-build-snagging",
-    description:
-      "A must for any newly constructed home. The ONLY survey of its type based on industry-compatible standards.",
-  },
-  {
-    title: "Property Consultancy",
+    title: "Consultancy Services",
     slug: "/surveys/property-consultancy",
     description:
-      "Bespoke property consultancy services tailored to your specific needs. Whether you need advice on property defects, development potential, or specialist guidance.",
+      "Bespoke property consultancy tailored to your specific needs — from defect advice to development potential and specialist guidance.",
   },
 ];
 

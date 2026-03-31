@@ -42,18 +42,22 @@ const GetInTouch = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
           Get in touch
         </h2>
-        <p className="mt-4 text-muted-foreground">
-          Please contact Victory Surveys at any time.
-        </p>
 
         {/* Direct contact info */}
         <div className="mt-8 flex flex-col items-center gap-3">
           <a
-            href={PHONE_NUMBER}
+            href="tel:01493000000"
             className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
           >
             <Phone className="w-5 h-5" />
-            (+44) 07874 062271
+            01493 000000
+          </a>
+          <a
+            href={PHONE_NUMBER}
+            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            (+44) 07874 062271 — Local Surveyor
           </a>
           <a
             href={`mailto:${RECIPIENT_EMAIL}`}

@@ -20,8 +20,8 @@ const MythsBusted = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           3 Survey Myths Busted
         </h2>
-        <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
-          There are many myths and misconceptions surrounding property surveys. We bust 3 popular survey misconceptions so you know the facts.
+        <p className="mt-4 text-center text-foreground max-w-2xl mx-auto">
+          There are many myths and misconceptions surrounding property surveys. We bust the most common ones so you can make your decision based on facts, not fear.
         </p>
         <div className="mt-12 grid md:grid-cols-3 gap-8">
           {myths.map((item, i) => (

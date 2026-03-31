@@ -69,7 +69,7 @@ const NewsInsights = () => {
             Serving Norfolk & Suffolk
           </h2>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            Based in Great Yarmouth, we cover a wide area across East Anglia. Not listed below? Get in touch — we are often able to accommodate.
+            Based in Great Yarmouth, we cover a wide area across East Anglia.
           </p>
         </div>
 
