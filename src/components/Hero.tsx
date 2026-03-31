@@ -32,8 +32,8 @@ const Hero = () => {
           </a>
         </Button>
         <div className="flex flex-col sm:flex-row items-start md:items-center gap-3 text-sm text-white/80">
-          <a href="tel:01493000000" className="hover:text-primary transition-colors">📞 01493 000000</a>
-          <a href="mailto:Info@victorysurveys.co.uk" className="hover:text-primary transition-colors">✉️ Info@victorysurveys.co.uk</a>
+          <a href="tel:01493000000" className="hover:text-primary transition-colors">01493 000000</a>
+          <a href="mailto:Info@victorysurveys.co.uk" className="hover:text-primary transition-colors">Info@victorysurveys.co.uk</a>
         </div>
       </div>
     </section>
