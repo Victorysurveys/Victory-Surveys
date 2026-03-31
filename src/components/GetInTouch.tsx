@@ -64,7 +64,7 @@ const GetInTouch = () => {
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Mail className="w-5 h-5" />
-            Info@victorysurveying.co.uk
+            Info@victorysurveys.co.uk
           </a>
           <a
             href="https://victorysurveying.co.uk"

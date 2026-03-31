@@ -18,12 +18,12 @@ const Index = () => {
       <main>
         <Hero />
         <IntroSection />
-        <SurveyTypes onRecommend={handleSurveyRecommend} />
+        <SurveyTypes />
         <SafeHands />
         
         <NewsInsights />
         <CtaSection />
-        <QuoteRequestForm preSelectedSurvey={preSelectedSurvey} />
+        <QuoteRequestForm />
         <GetInTouch />
       </main>
       <Footer />

@@ -48,7 +48,7 @@ const SurveyTypes = () => {
           </Link>
         </p>
         <div className="flex justify-center mb-10">
-          <SurveyRecommender onRecommend={onRecommend} />
+          <SurveyRecommender />
         </div>
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {surveys.map((survey) => (
