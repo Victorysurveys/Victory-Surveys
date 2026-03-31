@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import SurveysOverview from "./pages/SurveysOverview.tsx";
 import HomeBuyerCondition from "./pages/surveys/HomeBuyerCondition.tsx";
 import BuildingSurvey from "./pages/surveys/BuildingSurvey.tsx";
+import SingleDefect from "./pages/surveys/SingleDefect.tsx";
 import BuyToLet from "./pages/surveys/BuyToLet.tsx";
 import NewBuildSnagging from "./pages/surveys/NewBuildSnagging.tsx";
 import PropertyConsultancy from "./pages/surveys/PropertyConsultancy.tsx";
