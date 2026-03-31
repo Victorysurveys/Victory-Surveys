@@ -42,10 +42,7 @@ const SurveyTypes = () => {
           Our Survey Services
         </h2>
         <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-6">
-          Only RPSA Surveyors offer products based on a full and thorough inspection.{" "}
-          <Link to="/surveys" className="text-primary hover:underline font-medium">
-            View all surveys →
-          </Link>
+          Only RPSA Surveyors offer products based on a full and thorough inspection.
         </p>
         <div className="flex justify-center mb-10">
           <SurveyRecommender />
