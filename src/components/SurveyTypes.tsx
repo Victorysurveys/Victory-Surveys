@@ -21,7 +21,7 @@ const surveys = [
     slug: "/surveys/building",
     description:
       "A focused inspection on a specific defect or concern within a property.",
-    image: buildingSurveyImg,
+    image: singleDefectImg,
     popular: false,
   },
   {
