@@ -63,7 +63,7 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
             >
               {survey.popular && (
                 <span className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
-                  Most Popular
+                  {(survey as any).popularLabel || "Flagship Survey"}
                 </span>
               )}
               <img
