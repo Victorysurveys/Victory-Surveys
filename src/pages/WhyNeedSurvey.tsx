@@ -27,7 +27,7 @@ const WhyNeedSurveyPage = () => {
             <div className="w-full md:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img
-                  src="/74ee7f2a-a110-4d09-9dd0-cba57d9c8f47.jpg"
+                  src="/why-need-survey.jpg"
                   alt="Property survey - uncovering hidden defects"
                   className="w-full h-72 md:h-96 object-cover"
                   loading="lazy"
