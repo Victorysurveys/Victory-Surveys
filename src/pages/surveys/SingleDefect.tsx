@@ -18,8 +18,8 @@ const SingleDefect = () => {
       <Navbar />
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/#choose-survey" className="text-sm text-primary hover:underline mb-6 inline-block">
-            ← Back to surveys
+          <Link to="/" className="text-sm text-primary hover:underline mb-6 inline-block">
+            ← Back to home
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">Single Defect Report / Item</h1>
           <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
