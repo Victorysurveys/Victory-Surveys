@@ -1,260 +1,179 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageCircle, Send, Loader2, ArrowRight } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MessageCircle, Send } from "lucide-react";
+import { toast } from "sonner";
+import PostcodeFinder from "@/components/PostcodeFinder";
 
-type Msg = { role: "user" | "assistant"; content: string };
+const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/survey-recommender`;
+const surveyInterests = [
+  "Home Buyer / Condition Survey",
+  "Single Defect Report / Item",
+  "Consultancy Services",
+  "Not sure — please advise",
+];
 
-const SURVEY_MAP: Record<string, string> = {
-  "Home Buyer / Condition Survey": "Home Buyer / Condition Survey",
-  "Building Survey": "Building Survey",
-  "Buy To Let Survey": "Buy To Let Survey",
-  "New-build Snagging Inspection": "New-build Snagging Inspection",
-  "Property Consultancy": "Property Consultancy",
-};
+const emptyAddress = { line1: "", line2: "", city: "", county: "", postcode: "" };
 
-interface SurveyRecommenderProps {
-  onRecommend?: (surveyType: string) => void;
-}
-
-const SurveyRecommender = ({ onRecommend }: SurveyRecommenderProps) => {
+const SurveyRecommender = () => {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Msg[]>([]);
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [recommendedSurvey, setRecommendedSurvey] = useState<string | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    surveyType: "Not sure — please advise",
+    propertyAddress: { ...emptyAddress },
+    message: "",
+  });
 
-  useEffect(() => {
-    if (open && messages.length === 0) {
-      sendToAI([]);
-    }
-  }, [open]);
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages]);
-
-  const sendToAI = async (conversationHistory: Msg[]) => {
-    setIsLoading(true);
-    let assistantSoFar = "";
-
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
     try {
-      const resp = await fetch(CHAT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        },
-        body: JSON.stringify({ messages: conversationHistory }),
+      const addr = form.propertyAddress;
+      const addrStr = [addr.line1, addr.line2, addr.city, addr.county, addr.postcode].filter(Boolean).join(", ");
+      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+        `Enquiry from ${form.name} — ${form.surveyType}`
+      )}&body=${encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSurvey Interest: ${form.surveyType}\nProperty Address: ${addrStr}\n\nMessage:\n${form.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      toast.success("Opening your email client...");
+      setOpen(false);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        surveyType: "Not sure — please advise",
+        propertyAddress: { ...emptyAddress },
+        message: "",
       });
-
-      if (!resp.ok || !resp.body) {
-        throw new Error("Failed to connect");
-      }
-
-      const reader = resp.body.getReader();
-      const decoder = new TextDecoder();
-      let textBuffer = "";
-
-      const updateAssistant = (content: string) => {
-        assistantSoFar += content;
-        setMessages((prev) => {
-          const last = prev[prev.length - 1];
-          if (last?.role === "assistant") {
-            return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar } : m));
-          }
-          return [...prev, { role: "assistant", content: assistantSoFar }];
-        });
-      };
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        textBuffer += decoder.decode(value, { stream: true });
-
-        let newlineIndex: number;
-        while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
-          let line = textBuffer.slice(0, newlineIndex);
-          textBuffer = textBuffer.slice(newlineIndex + 1);
-          if (line.endsWith("\r")) line = line.slice(0, -1);
-          if (line.startsWith(":") || line.trim() === "") continue;
-          if (!line.startsWith("data: ")) continue;
-          const jsonStr = line.slice(6).trim();
-          if (jsonStr === "[DONE]") break;
-          try {
-            const parsed = JSON.parse(jsonStr);
-            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-            if (content) updateAssistant(content);
-          } catch {
-            textBuffer = line + "\n" + textBuffer;
-            break;
-          }
-        }
-      }
-
-      // Check for recommendation
-      const match = assistantSoFar.match(/RECOMMENDED_SURVEY:(.+)/);
-      if (match) {
-        const surveyName = match[1].trim();
-        if (SURVEY_MAP[surveyName]) {
-          setRecommendedSurvey(surveyName);
-        }
-        // Clean up the display message
-        setMessages((prev) =>
-          prev.map((m, i) =>
-            i === prev.length - 1
-              ? { ...m, content: m.content.replace(/\n?RECOMMENDED_SURVEY:.+/, "") }
-              : m
-          )
-        );
-      }
-    } catch (err) {
-      console.error(err);
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Sorry, I'm having trouble connecting. Please try again or contact us directly at Info@victorysurveying.co.uk" },
-      ]);
+    } catch {
+      toast.error("Something went wrong. Please try again.");
     } finally {
-      setIsLoading(false);
+      setSending(false);
     }
-  };
-
-  const handleSend = () => {
-    if (!input.trim() || isLoading) return;
-    const userMsg: Msg = { role: "user", content: input.trim() };
-    const newHistory = [...messages, userMsg];
-    setMessages(newHistory);
-    setInput("");
-    sendToAI(newHistory);
-  };
-
-  const handleGetQuote = () => {
-    if (recommendedSurvey && onRecommend) {
-      onRecommend(recommendedSurvey);
-    }
-    setOpen(false);
-    setTimeout(() => {
-      document.getElementById("quote-request")?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
-  };
-
-  const handleReset = () => {
-    setMessages([]);
-    setRecommendedSurvey(null);
-    setInput("");
-    sendToAI([]);
   };
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(val) => {
-        setOpen(val);
-        if (!val) {
-          setMessages([]);
-          setRecommendedSurvey(null);
-          setInput("");
-        }
-      }}
-    >
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           variant="outline"
           className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold"
         >
           <MessageCircle className="w-5 h-5" />
-          Not sure? Let us help
+          Not sure? Get in touch
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg max-h-[85vh] flex flex-col p-0 gap-0">
-        <DialogHeader className="px-6 pt-6 pb-4 border-b border-border">
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
           <DialogTitle className="text-xl font-bold text-foreground flex items-center gap-2">
             <MessageCircle className="w-5 h-5 text-primary" />
-            Survey Advisor
+            Tell us about your property
           </DialogTitle>
           <p className="text-sm text-muted-foreground">
-            Answer a few quick questions and we'll recommend the right survey for you.
+            Fill in your details and we'll get back to you with the right advice.
           </p>
         </DialogHeader>
 
-        {/* Chat Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-4 space-y-4 min-h-[300px] max-h-[400px]">
-          {messages.map((msg, i) => (
-            <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div
-                className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                  msg.role === "user"
-                    ? "bg-primary text-primary-foreground rounded-br-md"
-                    : "bg-secondary text-foreground rounded-bl-md"
-                }`}
-              >
-                {msg.role === "assistant" ? (
-                  <div className="prose prose-sm max-w-none [&>p]:m-0">
-                    <ReactMarkdown>{msg.content}</ReactMarkdown>
-                  </div>
-                ) : (
-                  msg.content
-                )}
-              </div>
+        <form onSubmit={handleSubmit} className="space-y-4 mt-2">
+          {/* Customer Info */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-foreground border-b border-border pb-1">Your Details</h3>
+            <div>
+              <Label htmlFor="enquiry-name">Full name *</Label>
+              <Input
+                id="enquiry-name"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder="John Smith"
+                className="mt-1"
+              />
             </div>
-          ))}
-          {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
-            <div className="flex justify-start">
-              <div className="bg-secondary rounded-2xl rounded-bl-md px-4 py-3">
-                <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <Label htmlFor="enquiry-email">Email *</Label>
+                <Input
+                  id="enquiry-email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="you@example.com"
+                  className="mt-1"
+                />
               </div>
-            </div>
-          )}
-        </div>
-
-        {/* Recommendation CTA */}
-        {recommendedSurvey && (
-          <div className="px-6 py-3 bg-primary/10 border-t border-primary/20">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-sm font-medium text-foreground">
-                Recommended: <span className="text-primary font-bold">{recommendedSurvey}</span>
-              </p>
-              <Button onClick={handleGetQuote} size="sm" className="gap-2 shrink-0">
-                Get a Quote <ArrowRight className="w-4 h-4" />
-              </Button>
+              <div>
+                <Label htmlFor="enquiry-phone">Phone</Label>
+                <Input
+                  id="enquiry-phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="07xxx xxxxxx"
+                  className="mt-1"
+                />
+              </div>
             </div>
           </div>
-        )}
 
-        {/* Input Area */}
-        <div className="px-6 py-4 border-t border-border">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSend();
-            }}
-            className="flex gap-2"
-          >
-            <Input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your answer..."
-              disabled={isLoading}
-              className="flex-1"
+          {/* Property Info */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-foreground border-b border-border pb-1">Property Information</h3>
+            <div>
+              <Label htmlFor="enquiry-survey">What are you interested in?</Label>
+              <Select
+                value={form.surveyType}
+                onValueChange={(val) => setForm({ ...form, surveyType: val })}
+              >
+                <SelectTrigger className="mt-1">
+                  <SelectValue placeholder="Select..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {surveyInterests.map((type) => (
+                    <SelectItem key={type} value={type}>{type}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <PostcodeFinder
+              id="enquiryPropertyAddress"
+              label="Property address"
+              required={false}
+              value={form.propertyAddress}
+              onChange={(addr) => setForm((prev) => ({ ...prev, propertyAddress: addr }))}
             />
-            <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
-              <Send className="w-4 h-4" />
-            </Button>
-          </form>
-          {messages.length > 2 && (
-            <button
-              onClick={handleReset}
-              className="text-xs text-muted-foreground hover:text-foreground mt-2 underline"
-            >
-              Start over
-            </button>
-          )}
-        </div>
+          </div>
+
+          {/* Message */}
+          <div>
+            <Label htmlFor="enquiry-message">Tell us more</Label>
+            <Textarea
+              id="enquiry-message"
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              placeholder="Any specific concerns, questions, or details about the property..."
+              rows={3}
+              className="mt-1"
+            />
+          </div>
+
+          <Button type="submit" className="w-full gap-2" disabled={sending}>
+            {sending ? "Sending..." : "Send Enquiry"}
+            <Send className="w-4 h-4" />
+          </Button>
+          <p className="text-xs text-center text-muted-foreground">
+            Your enquiry will be sent to Info@victorysurveys.co.uk
+          </p>
+        </form>
       </DialogContent>
     </Dialog>
   );

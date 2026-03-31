@@ -10,7 +10,7 @@ import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "info@victorysurveying.co.uk";
+const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const areas = [
   {

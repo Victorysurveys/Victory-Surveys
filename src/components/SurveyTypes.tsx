@@ -34,11 +34,7 @@ const surveys = [
   },
 ];
 
-interface SurveyTypesProps {
-  onRecommend?: (surveyType: string) => void;
-}
-
-const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
+const SurveyTypes = () => {
   return (
     <section id="choose-survey" className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +48,7 @@ const SurveyTypes = ({ onRecommend }: SurveyTypesProps) => {
           </Link>
         </p>
         <div className="flex justify-center mb-10">
-          <SurveyRecommender onRecommend={onRecommend} />
+          <SurveyRecommender />
         </div>
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {surveys.map((survey) => (

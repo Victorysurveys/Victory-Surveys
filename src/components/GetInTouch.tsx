@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "Info@victorysurveying.co.uk";
+const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const GetInTouch = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -57,23 +57,23 @@ const GetInTouch = () => {
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Phone className="w-5 h-5" />
-            (+44) 07874 062271 — Local Surveyor
+            (+44) 07874 062271 — Jamie (Local Surveyor)
           </a>
           <a
             href={`mailto:${RECIPIENT_EMAIL}`}
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Mail className="w-5 h-5" />
-            Info@victorysurveying.co.uk
+            Info@victorysurveys.co.uk
           </a>
           <a
-            href="https://victorysurveying.co.uk"
+            href="https://victorysurveys.co.uk"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Globe className="w-5 h-5" />
-            victorysurveying.co.uk
+            victorysurveys.co.uk
           </a>
         </div>
 

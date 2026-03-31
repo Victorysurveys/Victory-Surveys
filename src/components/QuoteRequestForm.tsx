@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -73,11 +73,7 @@ const propertyTypes = [
 
 const emptyAddress = { line1: "", line2: "", city: "", county: "", postcode: "" };
 
-interface QuoteRequestFormProps {
-  preSelectedSurvey?: string;
-}
-
-const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
+const QuoteRequestForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showManualAgent, setShowManualAgent] = useState(false);
@@ -98,11 +94,6 @@ const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
     additionalInfo: "",
   });
 
-  useEffect(() => {
-    if (preSelectedSurvey) {
-      setFormData((prev) => ({ ...prev, surveyType: preSelectedSurvey }));
-    }
-  }, [preSelectedSurvey]);
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
