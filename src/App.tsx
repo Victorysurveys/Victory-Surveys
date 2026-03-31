@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/surveys" element={<SurveysOverview />} />
           <Route path="/surveys/home-buyer-condition" element={<HomeBuyerCondition />} />
           <Route path="/surveys/building" element={<BuildingSurvey />} />
+          <Route path="/surveys/single-defect" element={<SingleDefect />} />
           <Route path="/surveys/buy-to-let" element={<BuyToLet />} />
           <Route path="/surveys/new-build-snagging" element={<NewBuildSnagging />} />
           <Route path="/surveys/property-consultancy" element={<PropertyConsultancy />} />
