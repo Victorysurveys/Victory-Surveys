@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SurveyRecommender from "@/components/SurveyRecommender";
 import bricksSurveyImg from "@/assets/bricks-survey.webp";
-import buildingSurveyImg from "@/assets/building-survey.webp";
+import singleDefectImg from "@/assets/single-defect.webp";
 import btlSurveyImg from "@/assets/btl-survey.webp";
 
 const surveys = [
