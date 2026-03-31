@@ -67,13 +67,13 @@ const GetInTouch = () => {
             Info@victorysurveys.co.uk
           </a>
           <a
-            href="https://victorysurveying.co.uk"
+            href="https://victorysurveys.co.uk"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Globe className="w-5 h-5" />
-            victorysurveying.co.uk
+            victorysurveys.co.uk
           </a>
         </div>
 
