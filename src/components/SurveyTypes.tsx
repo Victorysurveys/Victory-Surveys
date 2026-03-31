@@ -18,7 +18,7 @@ const surveys = [
   },
   {
     title: "Single Defect Report / Item",
-    slug: "/surveys/building",
+    slug: "/surveys/single-defect",
     description:
       "A focused inspection on a specific defect or concern within a property.",
     image: singleDefectImg,
