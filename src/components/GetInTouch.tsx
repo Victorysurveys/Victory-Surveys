@@ -57,7 +57,7 @@ const GetInTouch = () => {
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Phone className="w-5 h-5" />
-            (+44) 07874 062271 — Local Surveyor
+            (+44) 07874 062271 — Jamie (Local Surveyor)
           </a>
           <a
             href={`mailto:${RECIPIENT_EMAIL}`}
