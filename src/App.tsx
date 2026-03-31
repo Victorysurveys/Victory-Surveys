@@ -4,7 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
-import SurveysOverview from "./pages/SurveysOverview.tsx";
 import HomeBuyerCondition from "./pages/surveys/HomeBuyerCondition.tsx";
 import BuildingSurvey from "./pages/surveys/BuildingSurvey.tsx";
 import SingleDefect from "./pages/surveys/SingleDefect.tsx";
