@@ -5,7 +5,6 @@ import logo from "@/assets/victory-logo-gold.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Our Surveys", href: "/surveys" },
   { label: "Why do I need a survey?", href: "/why-need-survey" },
   { label: "Survey Myths", href: "/survey-myths" },
 ];
