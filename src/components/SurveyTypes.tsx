@@ -50,7 +50,7 @@ const SurveyTypes = () => {
         <div className="flex justify-center mb-10">
           <SurveyRecommender />
         </div>
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {surveys.map((survey) => (
             <div
               key={survey.title}
