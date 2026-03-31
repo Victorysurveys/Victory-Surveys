@@ -138,9 +138,13 @@ const QuoteRequestForm = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-brand-dark-text text-center">
           Request a Quote
         </h2>
-        <p className="mt-2 text-center text-brand-dark-text-muted mb-10">
+        <p className="mt-2 text-center text-brand-dark-text-muted">
           Fill in the details below and we'll get back to you with a personalised quote.
         </p>
+        <div className="mt-4 mb-10 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-brand-dark-text-muted">
+          <a href="tel:01493000000" className="hover:text-primary transition-colors">📞 01493 000000</a>
+          <a href="mailto:Info@victorysurveys.co.uk" className="hover:text-primary transition-colors">✉️ Info@victorysurveys.co.uk</a>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Survey Type */}
