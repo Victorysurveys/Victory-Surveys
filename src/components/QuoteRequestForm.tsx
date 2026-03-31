@@ -73,11 +73,7 @@ const propertyTypes = [
 
 const emptyAddress = { line1: "", line2: "", city: "", county: "", postcode: "" };
 
-interface QuoteRequestFormProps {
-  preSelectedSurvey?: string;
-}
-
-const QuoteRequestForm = ({ preSelectedSurvey }: QuoteRequestFormProps) => {
+const QuoteRequestForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showManualAgent, setShowManualAgent] = useState(false);
