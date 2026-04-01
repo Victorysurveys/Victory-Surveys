@@ -76,7 +76,7 @@ const WhyNeedSurveyPage = () => {
                 description: "Unlike a mortgage valuation (done for the lender), a survey is carried out entirely in your interest by a qualified, independent surveyor.",
               },
             ].map((reason) => (
-              <div key={reason.title} className="bg-secondary rounded-xl p-6 border border-border">
+              <div key={reason.title} className="bg-secondary rounded-sm p-6 border border-border">
                 <h3 className="font-bold text-foreground text-lg">{reason.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
               </div>
