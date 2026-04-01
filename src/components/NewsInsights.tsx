@@ -134,8 +134,7 @@ const NewsInsights = () => {
             <div className="mt-3 flex gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
               <a href={PHONE_NUMBER}>
                 <Button variant="outline" size="sm" className="gap-2">
-                  <Phone className="w-4 h-4" />
-                  Call Us
+                   Call Us
                 </Button>
               </a>
               <Button
