@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import greatYarmouthImg from "@/assets/great-yarmouth.webp";
 import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const areas = [
   {
