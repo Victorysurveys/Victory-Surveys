@@ -83,7 +83,7 @@ const GetInTouch = () => {
 
         {/* Inline Enquiry Form */}
         <form onSubmit={handleEmailSubmit} className="mt-10 space-y-4 max-w-md mx-auto">
-          <h3 className="text-lg font-bold text-foreground text-center">Send us an enquiry</h3>
+          <h3 className="text-lg font-bold text-foreground text-center">Enquiry form</h3>
           <div>
             <Label htmlFor="touch-name" className="text-sm font-medium text-foreground">Name *</Label>
             <Input
