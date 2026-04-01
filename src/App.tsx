@@ -12,6 +12,7 @@ import NewBuildSnagging from "./pages/surveys/NewBuildSnagging.tsx";
 import PropertyConsultancy from "./pages/surveys/PropertyConsultancy.tsx";
 import SurveyMyths from "./pages/SurveyMyths.tsx";
 import WhyNeedSurveyPage from "./pages/WhyNeedSurvey.tsx";
+import Unsubscribe from "./pages/Unsubscribe.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
