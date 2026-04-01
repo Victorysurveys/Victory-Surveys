@@ -98,7 +98,7 @@ const Navbar = () => {
               className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 000000</span>
+              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 886199</span>
             </a>
             <a
               href="/#quote-request"
