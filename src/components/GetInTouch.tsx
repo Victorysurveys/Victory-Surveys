@@ -19,13 +19,22 @@ const GetInTouch = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
-        `Enquiry from ${form.name}`
-      )}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
-      )}`;
-      window.location.href = mailtoLink;
-      toast.success("Opening your email client...");
+      const id = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-enquiry",
+          recipientEmail: "info@victorysurveys.co.uk",
+          idempotencyKey: `contact-${id}`,
+          templateData: {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            message: form.message,
+            source: "Get in Touch form",
+          },
+        },
+      });
+      toast.success("Enquiry sent! We'll be in touch soon.");
       setShowEmailForm(false);
       setShowOptions(false);
       setForm({ name: "", email: "", phone: "", message: "" });

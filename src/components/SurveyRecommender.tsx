@@ -37,13 +37,24 @@ const SurveyRecommender = () => {
     try {
       const addr = form.propertyAddress;
       const addrStr = [addr.line1, addr.line2, addr.city, addr.county, addr.postcode].filter(Boolean).join(", ");
-      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
-        `Enquiry from ${form.name} — ${form.surveyType}`
-      )}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSurvey Interest: ${form.surveyType}\nProperty Address: ${addrStr}\n\nMessage:\n${form.message}`
-      )}`;
-      window.location.href = mailtoLink;
-      toast.success("Opening your email client...");
+      const id = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-enquiry",
+          recipientEmail: "info@victorysurveys.co.uk",
+          idempotencyKey: `enquiry-${id}`,
+          templateData: {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            surveyType: form.surveyType,
+            propertyAddress: addrStr,
+            message: form.message,
+            source: "Survey Recommender",
+          },
+        },
+      });
+      toast.success("Enquiry sent! We'll be in touch soon.");
       setOpen(false);
       setForm({
         name: "",
