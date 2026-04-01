@@ -25,8 +25,8 @@ const MythsBusted = () => {
         </p>
         <div className="mt-12 grid md:grid-cols-3 gap-8">
           {myths.map((item, i) => (
-            <div key={i} className="bg-card rounded-lg p-8 border border-border">
-              <span className="inline-block bg-brand-dark text-primary text-xs font-bold px-3 py-1 rounded-full">
+            <div key={i} className="bg-card rounded-sm p-8 border border-border">
+              <span className="inline-block bg-brand-dark text-primary text-xs font-bold px-3 py-1 rounded-sm">
                 Myth #{i + 1}
               </span>
               <h3 className="mt-4 text-lg font-bold text-foreground">{item.myth}</h3>

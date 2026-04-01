@@ -95,7 +95,7 @@ const SurveyMyths = () => {
           </p>
           <a
             href="/#quote-request"
-            className="inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            className="inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-sm hover:bg-primary/90 transition-colors"
           >
             Request a quote
           </a>

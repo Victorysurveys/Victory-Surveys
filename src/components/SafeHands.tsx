@@ -56,7 +56,7 @@ const SafeHands = () => {
               className="bg-card border border-border rounded-sm p-6 transition-all duration-300 hover:shadow-lg hover:border-primary/30"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-sm bg-primary/15 flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-bold text-foreground text-lg">
