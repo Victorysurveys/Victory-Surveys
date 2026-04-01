@@ -8,8 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
 import PostcodeFinder from "@/components/PostcodeFinder";
-
-const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
+import { supabase } from "@/integrations/supabase/client";
 
 const surveyInterests = [
   "Home Buyer / Condition Survey",
