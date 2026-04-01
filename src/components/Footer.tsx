@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/victory-logo-white.png";
 
 const Footer = () => {
@@ -9,15 +10,15 @@ const Footer = () => {
             <img src={logo} alt="Victory Surveys" className="h-10 w-auto rounded-sm" width={267} height={267} />
           </div>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
+            </Link>
+            <Link to="/terms-of-use" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Terms of Use
-            </a>
-            <a href="#" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
+            </Link>
+            <Link to="/cookie-policy" className="text-sm text-brand-dark-text-muted hover:text-brand-dark-text transition-colors">
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
         <div className="mt-6 text-center md:text-left">
