@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, Globe, MessageCircle, X } from "lucide-react";
+import { Phone, Mail, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,8 +10,6 @@ import { supabase } from "@/integrations/supabase/client";
 const PHONE_NUMBER = "tel:+4407874062271";
 
 const GetInTouch = () => {
-  const [showOptions, setShowOptions] = useState(false);
-  const [showEmailForm, setShowEmailForm] = useState(false);
   const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
@@ -35,8 +33,6 @@ const GetInTouch = () => {
         },
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
-      setShowEmailForm(false);
-      setShowOptions(false);
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -47,13 +43,13 @@ const GetInTouch = () => {
 
   return (
     <section id="get-in-touch" className="py-16 md:py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           Get in touch
         </h2>
 
         {/* Direct contact info */}
-        <div className="mt-8 flex flex-col items-center gap-3">
+        <div className="mt-8 flex flex-col items-center gap-3 text-center">
           <a
             href="tel:01493886199"
             className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
@@ -85,110 +81,64 @@ const GetInTouch = () => {
           </a>
         </div>
 
-        {/* Contact Us button */}
-        <div className="mt-8 flex flex-col items-center gap-4">
-          <Button
-            size="lg"
-            onClick={() => setShowOptions(!showOptions)}
-            className="gap-2 text-lg px-8"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Contact Us
+        {/* Inline Enquiry Form */}
+        <form onSubmit={handleEmailSubmit} className="mt-10 space-y-4 max-w-md mx-auto">
+          <h3 className="text-lg font-bold text-foreground text-center">Send us an enquiry</h3>
+          <div>
+            <Label htmlFor="touch-name" className="text-sm font-medium text-foreground">Name *</Label>
+            <Input
+              id="touch-name"
+              required
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              placeholder="Your full name"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="touch-email" className="text-sm font-medium text-foreground">Email *</Label>
+            <Input
+              id="touch-email"
+              type="email"
+              required
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              placeholder="you@example.com"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="touch-phone" className="text-sm font-medium text-foreground">Phone</Label>
+            <Input
+              id="touch-phone"
+              type="tel"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              placeholder="07xxx xxxxxx"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="touch-message" className="text-sm font-medium text-foreground">Message *</Label>
+            <Textarea
+              id="touch-message"
+              required
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              placeholder="Tell us about your enquiry..."
+              rows={4}
+              className="mt-1"
+            />
+          </div>
+          <Button type="submit" className="w-full" disabled={sending}>
+            {sending ? "Sending..." : "Send Enquiry"}
           </Button>
+        </form>
 
-          {showOptions && (
-            <div className="flex gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-              <a href={PHONE_NUMBER}>
-                <Button variant="outline" size="lg" className="gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call Us
-                </Button>
-              </a>
-              <Button
-                variant="outline"
-                size="lg"
-                className="gap-2"
-                onClick={() => setShowEmailForm(true)}
-              >
-                <Mail className="w-5 h-5" />
-                Email Us
-              </Button>
-            </div>
-          )}
-        </div>
-
-        <p className="mt-6 text-sm text-muted-foreground">
+        <p className="mt-6 text-sm text-muted-foreground text-center">
           We will return calls outside of business hours as soon as possible.
         </p>
       </div>
-
-      {/* Email Form Modal */}
-      {showEmailForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-card rounded-sm shadow-2xl w-full max-w-md border border-border animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between p-5 border-b border-border">
-              <h3 className="text-lg font-bold text-foreground">Get in Touch</h3>
-              <button
-                onClick={() => setShowEmailForm(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <form onSubmit={handleEmailSubmit} className="p-5 space-y-4">
-              <div>
-                <Label htmlFor="bottom-contact-name" className="text-sm font-medium text-foreground">Name *</Label>
-                <Input
-                  id="bottom-contact-name"
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Your full name"
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="bottom-contact-email" className="text-sm font-medium text-foreground">Email *</Label>
-                <Input
-                  id="bottom-contact-email"
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="you@example.com"
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="bottom-contact-phone" className="text-sm font-medium text-foreground">Phone</Label>
-                <Input
-                  id="bottom-contact-phone"
-                  type="tel"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="07xxx xxxxxx"
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="bottom-contact-message" className="text-sm font-medium text-foreground">Message *</Label>
-                <Textarea
-                  id="bottom-contact-message"
-                  required
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Tell us about your enquiry..."
-                  rows={4}
-                  className="mt-1"
-                />
-              </div>
-              <Button type="submit" className="w-full" disabled={sending}>
-                {sending ? "Sending..." : "Send Enquiry"}
-              </Button>
-            </form>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
