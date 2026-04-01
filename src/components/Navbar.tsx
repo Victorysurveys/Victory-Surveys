@@ -44,11 +44,11 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:01493000000"
+              href="tel:01493886199"
               className="flex items-center gap-2 text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              01493 000000
+              01493 886199
             </a>
             <a
               href="/#quote-request"
@@ -94,11 +94,11 @@ const Navbar = () => {
               )
             )}
             <a
-              href="tel:01493000000"
+              href="tel:01493886199"
               className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 000000</span>
+              <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 01493 886199</span>
             </a>
             <a
               href="/#quote-request"
