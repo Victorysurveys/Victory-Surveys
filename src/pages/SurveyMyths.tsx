@@ -66,7 +66,7 @@ const SurveyMyths = () => {
 
               {/* Content */}
               <div className="w-full md:w-1/2">
-                <span className="inline-block bg-destructive/10 text-destructive text-xs font-bold px-3 py-1 rounded-full mb-4">
+                <span className="inline-block bg-destructive/10 text-destructive text-xs font-bold px-3 py-1 rounded-sm mb-4">
                   Myth #{i + 1}
                 </span>
                 <h2 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
