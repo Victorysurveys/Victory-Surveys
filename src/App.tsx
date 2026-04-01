@@ -34,6 +34,7 @@ const App = () => (
           <Route path="/surveys/property-consultancy" element={<PropertyConsultancy />} />
           <Route path="/survey-myths" element={<SurveyMyths />} />
           <Route path="/why-need-survey" element={<WhyNeedSurveyPage />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
