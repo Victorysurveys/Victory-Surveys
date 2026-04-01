@@ -34,7 +34,7 @@ const TermsOfUse = () => {
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">3. Our services</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Victory Surveys provides property surveying services. All surveys are carried out by qualified and chartered surveyors. The information on this website is for general guidance only and does not constitute professional advice.
+            Victory Surveys provides property surveying services. The information on this website is for general guidance only and does not constitute professional advice.
           </p>
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">4. Quotes and pricing</h2>
