@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, MessageSquare, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/victory-logo-gold.png";
+import logo from "@/assets/victory-logo-white.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
