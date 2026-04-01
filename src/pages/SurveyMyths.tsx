@@ -34,7 +34,7 @@ const SurveyMyths = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary">
             Survey Myths Busted
           </h1>
-          <p className="mt-4 text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed text-lg">
+          <p className="mt-4 max-w-2xl mx-auto leading-relaxed text-lg bg-destructive-foreground text-destructive-foreground">
             There are many myths and misconceptions surrounding property surveys. We bust the most common ones so you can make your decision based on facts, not fear.
           </p>
         </div>
