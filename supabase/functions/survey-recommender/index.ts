@@ -6,6 +6,10 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const MAX_MESSAGES = 20;
+const MAX_CONTENT_LENGTH = 2000;
+const ALLOWED_ROLES = new Set(["user", "assistant"]);
+
 const systemPrompt = `You are a friendly survey advisor for Victory Surveys, an RPSA-regulated surveying firm. Your job is to help homebuyers choose the right survey by asking them questions one at a time.
 
 You must recommend ONE of these survey types:
@@ -43,7 +47,40 @@ serve(async (req) => {
   }
 
   try {
-    const { messages } = await req.json();
+    // Verify the caller is using the Supabase anon key
+    const apiKeyHeader = req.headers.get("apikey");
+    const expectedAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!apiKeyHeader || apiKeyHeader !== expectedAnonKey) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const body = await req.json();
+    const { messages } = body;
+
+    // Validate messages array
+    if (!Array.isArray(messages)) {
+      return new Response(
+        JSON.stringify({ error: "Bad request: messages must be an array" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Sanitize: filter roles, cap count and length
+    const safeMessages = messages
+      .filter((m: unknown) => {
+        if (!m || typeof m !== "object") return false;
+        const msg = m as Record<string, unknown>;
+        return typeof msg.role === "string" && ALLOWED_ROLES.has(msg.role) && typeof msg.content === "string";
+      })
+      .slice(0, MAX_MESSAGES)
+      .map((m: Record<string, unknown>) => ({
+        role: m.role as string,
+        content: String(m.content).slice(0, MAX_CONTENT_LENGTH),
+      }));
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -59,7 +96,7 @@ serve(async (req) => {
           model: "google/gemini-3-flash-preview",
           messages: [
             { role: "system", content: systemPrompt },
-            ...messages,
+            ...safeMessages,
           ],
           stream: true,
         }),
@@ -93,7 +130,7 @@ serve(async (req) => {
   } catch (e) {
     console.error("survey-recommender error:", e);
     return new Response(
-      JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }),
+      JSON.stringify({ error: "An unexpected error occurred" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
