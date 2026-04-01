@@ -117,11 +117,6 @@ const CtaSection = () => {
             <p className="mt-4 text-muted-foreground leading-relaxed">
               With 9 years in the industry — from building inspection and planning through to earning my surveying degree and professional certifications — everything I do is rooted in a genuine passion for property. I'm here to give you honest, independent advice with no jargon and no surprises — just straightforward, friendly service from someone who truly cares about getting it right for you.
             </p>
-            <Button asChild className="mt-8 gap-2">
-              <a href="#quote-request">
-                Request a quote <ArrowRight className="w-4 h-4" />
-              </a>
-            </Button>
           </div>
         </div>
       </div>
