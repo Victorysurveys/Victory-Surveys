@@ -52,7 +52,7 @@ const SurveyMyths = () => {
             >
               {/* Image */}
               <div className="w-full md:w-1/2">
-                <div className="rounded-xl overflow-hidden shadow-lg">
+                <div className="rounded-sm overflow-hidden shadow-lg">
                   <img
                     src={item.image}
                     alt={item.imageAlt}
