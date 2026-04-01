@@ -68,7 +68,7 @@ const SurveyTypes = () => {
                 <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
                   {survey.description}
                 </p>
-                <div className="mt-6 flex gap-3">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button asChild variant="outline" size="sm" className="gap-2 rounded-sm">
                     <Link to={survey.slug}>
                       Learn more <ArrowRight className="w-4 h-4" />
