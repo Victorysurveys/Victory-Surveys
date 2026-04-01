@@ -21,7 +21,7 @@ const BuyToLet = () => {
             ← Back to all surveys
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">Buy To Let Survey</h1>
-          <div className="mt-4 inline-block bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full">
+          <div className="mt-4 inline-block bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-sm">
             ONLY available from RPSA members
           </div>
           <p className="mt-6 text-muted-foreground leading-relaxed text-lg">

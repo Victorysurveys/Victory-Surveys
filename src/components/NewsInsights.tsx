@@ -86,7 +86,7 @@ const NewsInsights = () => {
           {areas.map((area) => (
             <div
               key={area.region}
-              className="bg-card rounded-lg overflow-hidden border border-border shadow-sm flex flex-col"
+              className="bg-card rounded-sm overflow-hidden border border-border shadow-sm flex flex-col"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -153,7 +153,7 @@ const NewsInsights = () => {
         {/* Email Form Modal */}
         {showEmailForm && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-            <div className="bg-card rounded-xl shadow-2xl w-full max-w-md border border-border animate-in fade-in zoom-in-95 duration-200">
+            <div className="bg-card rounded-sm shadow-2xl w-full max-w-md border border-border animate-in fade-in zoom-in-95 duration-200">
               <div className="flex items-center justify-between p-5 border-b border-border">
                 <h3 className="text-lg font-bold text-foreground">Get in Touch</h3>
                 <button

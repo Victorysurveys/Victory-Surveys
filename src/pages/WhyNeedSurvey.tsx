@@ -25,7 +25,7 @@ const WhyNeedSurveyPage = () => {
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
             {/* Image */}
             <div className="w-full md:w-1/2">
-              <div className="rounded-xl overflow-hidden shadow-lg">
+              <div className="rounded-sm overflow-hidden shadow-lg">
                 <img
                   src="/why-need-survey.jpg"
                   alt="Property survey - uncovering hidden defects"
@@ -76,7 +76,7 @@ const WhyNeedSurveyPage = () => {
                 description: "Unlike a mortgage valuation (done for the lender), a survey is carried out entirely in your interest by a qualified, independent surveyor.",
               },
             ].map((reason) => (
-              <div key={reason.title} className="bg-secondary rounded-xl p-6 border border-border">
+              <div key={reason.title} className="bg-secondary rounded-sm p-6 border border-border">
                 <h3 className="font-bold text-foreground text-lg">{reason.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
               </div>
@@ -96,7 +96,7 @@ const WhyNeedSurveyPage = () => {
           </p>
           <a
             href="/#quote-request"
-            className="inline-flex items-center gap-2 mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-sm hover:bg-primary/90 transition-colors"
           >
             Request a quote <ArrowRight className="w-4 h-4" />
           </a>

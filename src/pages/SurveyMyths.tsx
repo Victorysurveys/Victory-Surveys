@@ -52,7 +52,7 @@ const SurveyMyths = () => {
             >
               {/* Image */}
               <div className="w-full md:w-1/2">
-                <div className="rounded-xl overflow-hidden shadow-lg">
+                <div className="rounded-sm overflow-hidden shadow-lg">
                   <img
                     src={item.image}
                     alt={item.imageAlt}
@@ -66,7 +66,7 @@ const SurveyMyths = () => {
 
               {/* Content */}
               <div className="w-full md:w-1/2">
-                <span className="inline-block bg-destructive/10 text-destructive text-xs font-bold px-3 py-1 rounded-full mb-4">
+                <span className="inline-block bg-destructive/10 text-destructive text-xs font-bold px-3 py-1 rounded-sm mb-4">
                   Myth #{i + 1}
                 </span>
                 <h2 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
@@ -95,7 +95,7 @@ const SurveyMyths = () => {
           </p>
           <a
             href="/#quote-request"
-            className="inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            className="inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-sm hover:bg-primary/90 transition-colors"
           >
             Request a quote
           </a>

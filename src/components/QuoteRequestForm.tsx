@@ -382,7 +382,7 @@ const QuoteRequestForm = () => {
                 </button>
 
                 {formData.agentName && (
-                  <div className="grid md:grid-cols-2 gap-4 bg-muted/10 border border-border/30 rounded-lg p-4">
+                  <div className="grid md:grid-cols-2 gap-4 bg-muted/10 border border-border/30 rounded-sm p-4">
                     <div>
                       <Label htmlFor="agentPhone" className={labelClass}>Agent phone</Label>
                       <Input
