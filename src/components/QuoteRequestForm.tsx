@@ -100,12 +100,39 @@ const QuoteRequestForm = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formatAddress = (addr: typeof emptyAddress) =>
+    [addr.line1, addr.line2, addr.city, addr.county, addr.postcode].filter(Boolean).join(", ");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const id = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "quote-request",
+          recipientEmail: "info@victorysurveys.co.uk",
+          idempotencyKey: `quote-${id}`,
+          templateData: {
+            surveyType: formData.surveyType,
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            yourAddress: formatAddress(formData.yourAddress),
+            propertyAddress: formatAddress(formData.propertyAddress),
+            propertyType: formData.propertyType,
+            propertyPrice: formData.propertyPrice,
+            numberOfBedrooms: formData.numberOfBedrooms,
+            agentName: formData.agentName,
+            agentPhone: formData.agentPhone,
+            agentEmail: formData.agentEmail,
+            vendorName: formData.vendorName,
+            additionalInfo: formData.additionalInfo,
+          },
+        },
+      });
+
       toast({
         title: "Quote request sent!",
         description: "We'll be in touch within 24 hours with your personalised quote.",
@@ -127,7 +154,15 @@ const QuoteRequestForm = () => {
         additionalInfo: "",
       });
       setShowManualAgent(false);
-    }, 1000);
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const labelClass = "text-brand-dark-text";
