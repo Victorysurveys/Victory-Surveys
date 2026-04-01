@@ -48,7 +48,7 @@ const Navbar = () => {
               className="flex items-center gap-2 text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              01493 000000
+              01493 886199
             </a>
             <a
               href="/#quote-request"
