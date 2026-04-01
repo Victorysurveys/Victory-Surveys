@@ -14,7 +14,7 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-hero-overlay/60" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-start md:items-center justify-center gap-6">
-        <img src={heroLogo} alt="Victory Surveys" className="w-full max-w-lg drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]" width={400} height={400} />
+        <img src={heroLogo} alt="Victory Surveys" className="w-full max-w-xs drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]" width={400} height={400} />
         <div className="flex flex-col gap-1 md:text-center">
           <p className="text-lg text-white drop-shadow-md">
             Property advice so good it feels like a win
