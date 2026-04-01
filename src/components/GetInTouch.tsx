@@ -69,7 +69,7 @@ const GetInTouch = () => {
             (+44) 07874 062271 — Jamie (Local Surveyor)
           </a>
           <a
-            href={`mailto:${RECIPIENT_EMAIL}`}
+            href="mailto:Info@victorysurveys.co.uk"
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Mail className="w-5 h-5" />
