@@ -59,7 +59,7 @@ const GetInTouch = () => {
             className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
           >
             <Phone className="w-5 h-5" />
-            01493 000000
+            01493 886199
           </a>
           <a
             href={PHONE_NUMBER}

@@ -94,7 +94,7 @@ const Navbar = () => {
               )
             )}
             <a
-              href="tel:01493000000"
+              href="tel:01493886199"
               className="block text-sm font-medium text-brand-dark-text hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
