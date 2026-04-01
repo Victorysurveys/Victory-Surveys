@@ -13,6 +13,9 @@ import PropertyConsultancy from "./pages/surveys/PropertyConsultancy.tsx";
 import SurveyMyths from "./pages/SurveyMyths.tsx";
 import WhyNeedSurveyPage from "./pages/WhyNeedSurvey.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import TermsOfUse from "./pages/TermsOfUse.tsx";
+import CookiePolicy from "./pages/CookiePolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
