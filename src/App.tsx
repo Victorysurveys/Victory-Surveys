@@ -12,6 +12,7 @@ import NewBuildSnagging from "./pages/surveys/NewBuildSnagging.tsx";
 import PropertyConsultancy from "./pages/surveys/PropertyConsultancy.tsx";
 import SurveyMyths from "./pages/SurveyMyths.tsx";
 import WhyNeedSurveyPage from "./pages/WhyNeedSurvey.tsx";
+import Unsubscribe from "./pages/Unsubscribe.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/surveys/property-consultancy" element={<PropertyConsultancy />} />
           <Route path="/survey-myths" element={<SurveyMyths />} />
           <Route path="/why-need-survey" element={<WhyNeedSurveyPage />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

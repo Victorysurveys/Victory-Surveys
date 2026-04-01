@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import greatYarmouthImg from "@/assets/great-yarmouth.webp";
 import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const areas = [
   {
@@ -43,13 +43,22 @@ const NewsInsights = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
-        `Coverage Enquiry from ${form.name}`
-      )}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
-      )}`;
-      window.location.href = mailtoLink;
-      toast.success("Opening your email client...");
+      const id = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-enquiry",
+          recipientEmail: "info@victorysurveys.co.uk",
+          idempotencyKey: `coverage-${id}`,
+          templateData: {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            message: form.message,
+            source: "Coverage area enquiry",
+          },
+        },
+      });
+      toast.success("Enquiry sent! We'll be in touch soon.");
       setShowEmailForm(false);
       setShowOptions(false);
       setForm({ name: "", email: "", phone: "", message: "" });

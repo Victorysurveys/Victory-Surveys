@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const PHONE_NUMBER = "tel:+4407874062271";
-const RECIPIENT_EMAIL = "Info@victorysurveys.co.uk";
 
 const GetInTouch = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -19,13 +19,22 @@ const GetInTouch = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const mailtoLink = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
-        `Enquiry from ${form.name}`
-      )}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
-      )}`;
-      window.location.href = mailtoLink;
-      toast.success("Opening your email client...");
+      const id = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-enquiry",
+          recipientEmail: "info@victorysurveys.co.uk",
+          idempotencyKey: `contact-${id}`,
+          templateData: {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            message: form.message,
+            source: "Get in Touch form",
+          },
+        },
+      });
+      toast.success("Enquiry sent! We'll be in touch soon.");
       setShowEmailForm(false);
       setShowOptions(false);
       setForm({ name: "", email: "", phone: "", message: "" });
@@ -60,7 +69,7 @@ const GetInTouch = () => {
             (+44) 07874 062271 — Jamie (Local Surveyor)
           </a>
           <a
-            href={`mailto:${RECIPIENT_EMAIL}`}
+            href="mailto:Info@victorysurveys.co.uk"
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Mail className="w-5 h-5" />
