@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import photoFinal from "@/assets/photo_final.jpg";
 
 const myths = [
   {
