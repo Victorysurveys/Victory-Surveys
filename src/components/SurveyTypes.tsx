@@ -68,13 +68,13 @@ const SurveyTypes = () => {
                 <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
                   {survey.description}
                 </p>
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button asChild variant="outline" size="sm" className="gap-2 rounded-sm">
+                <div className="mt-6 flex flex-col gap-3">
+                  <Button asChild variant="outline" size="sm" className="w-full justify-center gap-2 rounded-sm">
                     <Link to={survey.slug}>
                       Learn more <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
-                  <Button asChild size="sm" className="gap-2 rounded-sm">
+                  <Button asChild size="sm" className="w-full justify-center gap-2 rounded-sm">
                     <a href="#quote-request">Get a quote</a>
                   </Button>
                 </div>
