@@ -25,7 +25,7 @@ const WhyNeedSurveyPage = () => {
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
             {/* Image */}
             <div className="w-full md:w-1/2">
-              <div className="rounded-xl overflow-hidden shadow-lg">
+              <div className="rounded-sm overflow-hidden shadow-lg">
                 <img
                   src="/why-need-survey.jpg"
                   alt="Property survey - uncovering hidden defects"
