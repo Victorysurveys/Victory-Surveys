@@ -86,7 +86,7 @@ const NewsInsights = () => {
           {areas.map((area) => (
             <div
               key={area.region}
-              className="bg-card rounded-lg overflow-hidden border border-border shadow-sm flex flex-col"
+              className="bg-card rounded-sm overflow-hidden border border-border shadow-sm flex flex-col"
             >
               <div className="h-48 overflow-hidden">
                 <img
