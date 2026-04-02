@@ -10,7 +10,7 @@ import greatYarmouthImg from "@/assets/great-yarmouth.webp";
 import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
 
-const PHONE_NUMBER = "tel:+4407874062271";
+
 
 const areas = [
   {

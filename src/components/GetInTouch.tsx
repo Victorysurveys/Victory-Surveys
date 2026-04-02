@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { submitContactForm } from "@/lib/form-submit";
 
-const PHONE_NUMBER = "tel:+4407874062271";
+
 
 const GetInTouch = () => {
   const [sending, setSending] = useState(false);
