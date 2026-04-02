@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 import PostcodeFinder from "@/components/PostcodeFinder";
-import { supabase } from "@/integrations/supabase/client";
+import { submitQuoteForm } from "@/lib/form-submit";
 
 const surveyTypes = [
   "Home Buyer / Condition Survey",
