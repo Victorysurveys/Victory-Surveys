@@ -108,29 +108,21 @@ const QuoteRequestForm = () => {
     setIsSubmitting(true);
 
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "quote-request",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `quote-${id}`,
-          templateData: {
-            surveyType: formData.surveyType,
-            fullName: formData.fullName,
-            email: formData.email,
-            phone: formData.phone,
-            yourAddress: formatAddress(formData.yourAddress),
-            propertyAddress: formatAddress(formData.propertyAddress),
-            propertyType: formData.propertyType,
-            propertyPrice: formData.propertyPrice,
-            numberOfBedrooms: formData.numberOfBedrooms,
-            agentName: formData.agentName,
-            agentPhone: formData.agentPhone,
-            agentEmail: formData.agentEmail,
-            vendorName: formData.vendorName,
-            additionalInfo: formData.additionalInfo,
-          },
-        },
+      await submitQuoteForm({
+        surveyType: formData.surveyType,
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        yourAddress: formatAddress(formData.yourAddress),
+        propertyAddress: formatAddress(formData.propertyAddress),
+        propertyType: formData.propertyType,
+        propertyPrice: formData.propertyPrice,
+        numberOfBedrooms: formData.numberOfBedrooms,
+        agentName: formData.agentName,
+        agentPhone: formData.agentPhone,
+        agentEmail: formData.agentEmail,
+        vendorName: formData.vendorName,
+        additionalInfo: formData.additionalInfo,
       });
 
       toast({
