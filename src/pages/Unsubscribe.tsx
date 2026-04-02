@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Loader2 } from "lucide-react";
 
+/** WP port: page-unsubscribe.php (requires custom JS for token handling) */
 const Unsubscribe = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
@@ -38,14 +39,14 @@ const Unsubscribe = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
-      <div className="max-w-md w-full text-center space-y-6">
+    <div className="vs-page vs-page--unsubscribe min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="vs-container max-w-md w-full text-center space-y-6">
         <h1 className="text-2xl font-bold text-foreground">Email Preferences</h1>
         {status === "loading" && <Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" />}
         {status === "valid" && (
           <>
             <p className="text-muted-foreground">Click below to unsubscribe from future emails.</p>
-            <Button onClick={handleUnsubscribe} className="w-full">Confirm Unsubscribe</Button>
+            <Button onClick={handleUnsubscribe} className="vs-btn vs-btn--primary w-full">Confirm Unsubscribe</Button>
           </>
         )}
         {status === "success" && (

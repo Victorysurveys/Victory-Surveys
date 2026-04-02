@@ -1,22 +1,17 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 
+/** WP port: page-cookie-policy.php */
 const CookiePolicy = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <PageLayout pageId="cookie-policy">
+      <PageHero
+        title="Cookie Policy"
+        description="This policy explains how we use cookies and similar technologies on our website."
+      />
 
-      <section className="bg-brand-dark py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">Cookie Policy</h1>
-          <p className="mt-4 text-brand-dark-text max-w-2xl mx-auto leading-relaxed text-lg">
-            This policy explains how we use cookies and similar technologies on our website.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
+      <section className="vs-section vs-section--legal-content py-16 md:py-20">
+        <div className="vs-container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
           <p className="text-sm text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">1. What are cookies?</h2>
@@ -34,7 +29,7 @@ const CookiePolicy = () => {
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">3. Cookies we use</h2>
           <div className="overflow-x-auto mb-6">
-            <table className="w-full text-sm text-left border border-border">
+            <table className="vs-table w-full text-sm text-left border border-border">
               <thead className="bg-secondary">
                 <tr>
                   <th className="px-4 py-3 font-semibold text-foreground border-b border-border">Cookie</th>
@@ -83,9 +78,7 @@ const CookiePolicy = () => {
           </p>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

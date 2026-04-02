@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 import photoFinal from "@/assets/photo_final.jpg";
 
 const myths = [
@@ -23,35 +23,27 @@ const myths = [
   },
 ];
 
+/** WP port: page-survey-myths.php */
 const SurveyMyths = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
-      {/* Hero */}
-      <section className="bg-brand-dark py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">
-            Survey Myths Busted
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto leading-relaxed text-lg bg-destructive-foreground text-destructive-foreground">
-            There are many myths and misconceptions surrounding property surveys. We bust the most common ones so you can make your decision based on facts, not fear.
-          </p>
-        </div>
-      </section>
+    <PageLayout pageId="survey-myths">
+      <PageHero
+        title="Survey Myths Busted"
+        description="There are many myths and misconceptions surrounding property surveys. We bust the most common ones so you can make your decision based on facts, not fear."
+      />
 
       {/* Myths */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
+      <section className="vs-section vs-section--myths py-16 md:py-20">
+        <div className="vs-container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
           {myths.map((item, i) => (
-            <div
+            <article
               key={i}
-              className={`flex flex-col ${
+              className={`vs-myth flex flex-col ${
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } items-center gap-8 md:gap-12`}
             >
               {/* Image */}
-              <div className="w-full md:w-1/2">
+              <div className="vs-myth__image w-full md:w-1/2">
                 <div className="rounded-sm overflow-hidden shadow-lg">
                   <img
                     src={item.image}
@@ -65,7 +57,7 @@ const SurveyMyths = () => {
               </div>
 
               {/* Content */}
-              <div className="w-full md:w-1/2">
+              <div className="vs-myth__content w-full md:w-1/2">
                 <span className="inline-block bg-destructive/10 text-destructive text-xs font-bold px-3 py-1 rounded-sm mb-4">
                   Myth #{i + 1}
                 </span>
@@ -79,14 +71,14 @@ const SurveyMyths = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-secondary py-12">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="vs-section vs-section--cta bg-secondary py-12">
+        <div className="vs-container max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-foreground">
             Still have questions?
           </h2>
@@ -95,15 +87,13 @@ const SurveyMyths = () => {
           </p>
           <a
             href="/#quote-request"
-            className="inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-sm hover:bg-primary/90 transition-colors"
+            className="vs-btn vs-btn--primary inline-block mt-6 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-sm hover:bg-primary/90 transition-colors"
           >
             Request a quote
           </a>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

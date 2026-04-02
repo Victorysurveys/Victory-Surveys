@@ -15,7 +15,7 @@ const myths = [
 
 const MythsBusted = () => {
   return (
-    <section className="py-16 md:py-20 bg-secondary">
+    <section className="vs-section vs-section--myths-busted py-16 md:py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           3 Survey Myths Busted

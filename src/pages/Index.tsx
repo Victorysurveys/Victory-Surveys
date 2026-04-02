@@ -10,12 +10,13 @@ import QuoteRequestForm from "@/components/QuoteRequestForm";
 import GetInTouch from "@/components/GetInTouch";
 import Footer from "@/components/Footer";
 
+/** WP port: index.php — homepage template */
 const Index = () => {
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="vs-page vs-page--home min-h-screen bg-background" data-page="home">
       <Navbar />
-      <main>
+      <main className="vs-page__content">
         <Hero />
         <IntroSection />
         <SurveyTypes />
