@@ -109,10 +109,7 @@ const CtaSection = () => {
               Your Local Surveyor — Jamie
             </h2>
             <p className="text-sm text-muted-foreground font-medium tracking-wide">
-              MCABE, MCIOB, BSc(Hons) |{" "}
-              <a href="tel:+4407874062271" className="text-primary hover:underline">
-                (+44) 07874 062271
-              </a>
+              MCABE, MCIOB, BSc(Hons)
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               With 9 years in the industry — from building inspection and planning through to earning my surveying degree and professional certifications — everything I do is rooted in a genuine passion for property. I'm here to give you honest, independent advice with no jargon and no surprises — just straightforward, friendly service from someone who truly cares about getting it right for you.
