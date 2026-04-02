@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 import PostcodeFinder from "@/components/PostcodeFinder";
-import { supabase } from "@/integrations/supabase/client";
+import { submitQuoteForm } from "@/lib/form-submit";
 
 const surveyTypes = [
   "Home Buyer / Condition Survey",
@@ -108,29 +108,21 @@ const QuoteRequestForm = () => {
     setIsSubmitting(true);
 
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "quote-request",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `quote-${id}`,
-          templateData: {
-            surveyType: formData.surveyType,
-            fullName: formData.fullName,
-            email: formData.email,
-            phone: formData.phone,
-            yourAddress: formatAddress(formData.yourAddress),
-            propertyAddress: formatAddress(formData.propertyAddress),
-            propertyType: formData.propertyType,
-            propertyPrice: formData.propertyPrice,
-            numberOfBedrooms: formData.numberOfBedrooms,
-            agentName: formData.agentName,
-            agentPhone: formData.agentPhone,
-            agentEmail: formData.agentEmail,
-            vendorName: formData.vendorName,
-            additionalInfo: formData.additionalInfo,
-          },
-        },
+      await submitQuoteForm({
+        surveyType: formData.surveyType,
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        yourAddress: formatAddress(formData.yourAddress),
+        propertyAddress: formatAddress(formData.propertyAddress),
+        propertyType: formData.propertyType,
+        propertyPrice: formData.propertyPrice,
+        numberOfBedrooms: formData.numberOfBedrooms,
+        agentName: formData.agentName,
+        agentPhone: formData.agentPhone,
+        agentEmail: formData.agentEmail,
+        vendorName: formData.vendorName,
+        additionalInfo: formData.additionalInfo,
       });
 
       toast({
@@ -169,7 +161,7 @@ const QuoteRequestForm = () => {
   const inputClass = "bg-background text-foreground";
 
   return (
-    <section id="quote-request" className="py-16 md:py-20 bg-brand-dark">
+    <section id="quote-request" className="vs-section vs-section--quote-form py-16 md:py-20 bg-brand-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-brand-dark-text text-center">
           Request a Quote
@@ -182,7 +174,7 @@ const QuoteRequestForm = () => {
           <a href="mailto:Info@victorysurveys.co.uk" className="hover:text-primary/80 transition-colors">Info@victorysurveys.co.uk</a>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="vs-form space-y-8">
           {/* Survey Type */}
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">

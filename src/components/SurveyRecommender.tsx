@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
 import PostcodeFinder from "@/components/PostcodeFinder";
-import { supabase } from "@/integrations/supabase/client";
+import { submitContactForm } from "@/lib/form-submit";
 
 const surveyInterests = [
   "Home Buyer / Condition Survey",
@@ -37,22 +37,14 @@ const SurveyRecommender = () => {
     try {
       const addr = form.propertyAddress;
       const addrStr = [addr.line1, addr.line2, addr.city, addr.county, addr.postcode].filter(Boolean).join(", ");
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-enquiry",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `enquiry-${id}`,
-          templateData: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            surveyType: form.surveyType,
-            propertyAddress: addrStr,
-            message: form.message,
-            source: "Survey Recommender",
-          },
-        },
+      await submitContactForm({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        surveyType: form.surveyType,
+        propertyAddress: addrStr,
+        message: form.message,
+        source: "Survey Recommender",
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
       setOpen(false);

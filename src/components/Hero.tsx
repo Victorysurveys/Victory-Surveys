@@ -5,7 +5,7 @@ import heroLogo from "@/assets/victory-logo-white.png";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[420px] md:h-[480px] overflow-hidden">
+    <section id="hero" className="vs-section vs-section--hero relative w-full h-[420px] md:h-[480px] overflow-hidden">
       <img
         src={heroImage}
         alt="Happy family in their home"

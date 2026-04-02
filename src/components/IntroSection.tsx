@@ -1,6 +1,6 @@
 const IntroSection = () => {
   return (
-    <section className="py-16 md:py-20">
+    <section id="intro" className="vs-section vs-section--intro py-16 md:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
           Home surveys to help you make an informed purchase, from £249*

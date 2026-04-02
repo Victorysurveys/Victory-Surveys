@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { submitContactForm } from "@/lib/form-submit";
 import greatYarmouthImg from "@/assets/great-yarmouth.webp";
 import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
@@ -43,20 +43,12 @@ const NewsInsights = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-enquiry",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `coverage-${id}`,
-          templateData: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            message: form.message,
-            source: "Coverage area enquiry",
-          },
-        },
+      await submitContactForm({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        source: "Coverage area enquiry",
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
       setShowEmailForm(false);
@@ -70,7 +62,7 @@ const NewsInsights = () => {
   };
 
   return (
-    <section id="coverage" className="py-16 md:py-20">
+    <section id="coverage" className="vs-section vs-section--coverage py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-10">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider">Coverage</p>

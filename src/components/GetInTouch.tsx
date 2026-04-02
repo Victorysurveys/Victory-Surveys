@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { submitContactForm } from "@/lib/form-submit";
 
 const PHONE_NUMBER = "tel:+4407874062271";
 
@@ -17,20 +17,12 @@ const GetInTouch = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-enquiry",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `contact-${id}`,
-          templateData: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            message: form.message,
-            source: "Get in Touch form",
-          },
-        },
+      await submitContactForm({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        source: "Get in Touch form",
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
       setForm({ name: "", email: "", phone: "", message: "" });
@@ -42,7 +34,7 @@ const GetInTouch = () => {
   };
 
   return (
-    <section id="get-in-touch" className="py-16 md:py-20">
+    <section id="get-in-touch" className="vs-section vs-section--get-in-touch py-16 md:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           Get in touch
@@ -82,7 +74,7 @@ const GetInTouch = () => {
         </div>
 
         {/* Inline Enquiry Form */}
-        <form onSubmit={handleEmailSubmit} className="mt-10 space-y-4 max-w-md mx-auto">
+        <form onSubmit={handleEmailSubmit} className="vs-form mt-10 space-y-4 max-w-md mx-auto">
           <h3 className="text-lg font-bold text-foreground text-center">Send us an enquiry</h3>
           <div>
             <Label htmlFor="touch-name" className="text-sm font-medium text-foreground">Name *</Label>
