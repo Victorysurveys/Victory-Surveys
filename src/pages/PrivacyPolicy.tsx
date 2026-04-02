@@ -1,22 +1,17 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 
+/** WP port: page-privacy-policy.php */
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <PageLayout pageId="privacy-policy">
+      <PageHero
+        title="Privacy Policy"
+        description="Your privacy matters to us. This policy explains how we collect, use, and protect your personal information."
+      />
 
-      <section className="bg-brand-dark py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">Privacy Policy</h1>
-          <p className="mt-4 text-brand-dark-text max-w-2xl mx-auto leading-relaxed text-lg">
-            Your privacy matters to us. This policy explains how we collect, use, and protect your personal information.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
+      <section className="vs-section vs-section--legal-content py-16 md:py-20">
+        <div className="vs-container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
           <p className="text-sm text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">1. Who we are</h2>
@@ -79,9 +74,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

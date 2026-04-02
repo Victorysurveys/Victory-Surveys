@@ -1,22 +1,17 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 
+/** WP port: page-terms-of-use.php */
 const TermsOfUse = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <PageLayout pageId="terms-of-use">
+      <PageHero
+        title="Terms of Use"
+        description="Please read these terms carefully before using our website and services."
+      />
 
-      <section className="bg-brand-dark py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">Terms of Use</h1>
-          <p className="mt-4 text-brand-dark-text max-w-2xl mx-auto leading-relaxed text-lg">
-            Please read these terms carefully before using our website and services.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
+      <section className="vs-section vs-section--legal-content py-16 md:py-20">
+        <div className="vs-container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-neutral max-w-none">
           <p className="text-sm text-muted-foreground mb-8">Last updated: {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
 
           <h2 className="text-xl font-bold text-foreground mt-8 mb-4">1. Introduction</h2>
@@ -73,9 +68,7 @@ const TermsOfUse = () => {
           </p>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,16 +1,15 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+/** WP port: page-property-consultancy.php */
 const PropertyConsultancy = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="text-sm text-primary hover:underline mb-6 inline-block">
+    <PageLayout pageId="property-consultancy">
+      <section className="vs-section vs-section--survey-detail py-16 md:py-20">
+        <div className="vs-container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link to="/" className="vs-breadcrumb text-sm text-primary hover:underline mb-6 inline-block">
             ← Back to home
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -27,7 +26,7 @@ const PropertyConsultancy = () => {
           </p>
 
           <div className="mt-10 flex gap-4">
-            <Button asChild className="gap-2 font-semibold">
+            <Button asChild className="vs-btn vs-btn--primary gap-2 font-semibold">
               <Link to="/#quote-request">
                 Request a quote <ArrowRight className="w-4 h-4" />
               </Link>
@@ -35,8 +34,7 @@ const PropertyConsultancy = () => {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
