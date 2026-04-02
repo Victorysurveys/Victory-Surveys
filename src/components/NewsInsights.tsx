@@ -43,20 +43,12 @@ const NewsInsights = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-enquiry",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `coverage-${id}`,
-          templateData: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            message: form.message,
-            source: "Coverage area enquiry",
-          },
-        },
+      await submitContactForm({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        source: "Coverage area enquiry",
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
       setShowEmailForm(false);

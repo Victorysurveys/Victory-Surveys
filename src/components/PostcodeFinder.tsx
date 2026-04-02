@@ -113,7 +113,7 @@ const PostcodeFinder = ({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="vs-postcode-finder space-y-3">
       <Label htmlFor={`${id}-search`} className={labelClassName}>
         {label} {required && "*"}
       </Label>

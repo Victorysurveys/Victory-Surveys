@@ -174,7 +174,7 @@ const QuoteRequestForm = () => {
           <a href="mailto:Info@victorysurveys.co.uk" className="hover:text-primary/80 transition-colors">Info@victorysurveys.co.uk</a>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="vs-form space-y-8">
           {/* Survey Type */}
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-brand-dark-text border-b border-brand-dark-text-muted/30 pb-2">
