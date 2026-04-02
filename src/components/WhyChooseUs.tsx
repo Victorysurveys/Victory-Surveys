@@ -6,7 +6,7 @@ const stats = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-choose-us" className="py-16 md:py-20">
+    <section id="why-choose-us" className="vs-section vs-section--why-choose py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           Why choose Victory Surveys?

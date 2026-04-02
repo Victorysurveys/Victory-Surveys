@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const WhyNeedSurvey = () => {
   return (
-    <section id="why-need-survey" className="py-16 md:py-20 bg-secondary">
+    <section id="why-need-survey" className="vs-section vs-section--why-survey py-16 md:py-20 bg-secondary">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
           Why do you need a survey?
