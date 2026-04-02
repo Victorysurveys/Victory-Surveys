@@ -1,23 +1,46 @@
 # WordPress Porting Guide
 
-This document maps every React component to its WordPress theme equivalent.
+This document maps every React component and page to its WordPress theme equivalent.
 
-## Template Mapping
+## Shared Components
 
-| React Component           | WP Template / Part             | Section ID           |
-|---------------------------|--------------------------------|----------------------|
-| `Navbar.tsx`              | `header.php` / `template-parts/navbar.php` | `#site-header` |
-| `Hero.tsx`                | `template-parts/hero.php`      | `#hero`              |
-| `IntroSection.tsx`        | `template-parts/intro.php`     | `#intro`             |
-| `SurveyTypes.tsx`         | `template-parts/survey-types.php` | `#choose-survey`  |
-| `SafeHands.tsx`           | `template-parts/safe-hands.php`| `#why-choose-us`     |
-| `NewsInsights.tsx`        | `template-parts/coverage.php`  | `#coverage`          |
-| `CtaSection.tsx`          | `template-parts/local-surveyor.php` | `#local-surveyor` |
-| `QuoteRequestForm.tsx`    | `template-parts/quote-form.php`| `#quote-request`     |
-| `GetInTouch.tsx`          | `template-parts/get-in-touch.php` | `#get-in-touch`   |
-| `Footer.tsx`              | `footer.php`                   | `#site-footer`       |
-| `SurveyRecommender.tsx`   | JS modal (`assets/js/enquiry-modal.js`) | `.vs-enquiry-modal` |
-| `PostcodeFinder.tsx`      | JS widget (`assets/js/postcode-finder.js`) | `.vs-postcode-finder` |
+| React Component           | WP Equivalent                          | Notes                    |
+|---------------------------|----------------------------------------|--------------------------|
+| `PageLayout.tsx`          | `page.php` / `get_header()` + `get_footer()` | Wraps all inner pages    |
+| `PageHero.tsx`            | `template-parts/page-hero.php`         | Reusable dark hero banner |
+
+## Homepage Template Mapping (index.php)
+
+| React Component           | WP Template Part                       | Section ID           |
+|---------------------------|----------------------------------------|----------------------|
+| `Navbar.tsx`              | `header.php`                           | `#site-header`       |
+| `Hero.tsx`                | `template-parts/hero.php`              | `#hero`              |
+| `IntroSection.tsx`        | `template-parts/intro.php`             | `#intro`             |
+| `SurveyTypes.tsx`         | `template-parts/survey-types.php`      | `#choose-survey`     |
+| `SafeHands.tsx`           | `template-parts/safe-hands.php`        | `#why-choose-us`     |
+| `NewsInsights.tsx`        | `template-parts/coverage.php`          | `#coverage`          |
+| `CtaSection.tsx`          | `template-parts/local-surveyor.php`    | `#local-surveyor`    |
+| `QuoteRequestForm.tsx`    | `template-parts/quote-form.php`        | `#quote-request`     |
+| `GetInTouch.tsx`          | `template-parts/get-in-touch.php`      | `#get-in-touch`      |
+| `Footer.tsx`              | `footer.php`                           | `#site-footer`       |
+
+## Inner Page Mapping
+
+| React Page                        | WP Template File                | `data-page` attribute    |
+|-----------------------------------|---------------------------------|--------------------------|
+| `pages/surveys/HomeBuyerCondition`| `page-home-buyer-condition.php` | `home-buyer-condition`   |
+| `pages/surveys/BuildingSurvey`    | `page-building-survey.php`      | `building-survey`        |
+| `pages/surveys/SingleDefect`      | `page-single-defect.php`        | `single-defect`          |
+| `pages/surveys/BuyToLet`          | `page-buy-to-let.php`           | `buy-to-let`             |
+| `pages/surveys/NewBuildSnagging`  | `page-new-build-snagging.php`   | `new-build-snagging`     |
+| `pages/surveys/PropertyConsultancy`| `page-property-consultancy.php`| `property-consultancy`   |
+| `pages/SurveyMyths`              | `page-survey-myths.php`         | `survey-myths`           |
+| `pages/WhyNeedSurvey`            | `page-why-need-survey.php`      | `why-need-survey`        |
+| `pages/PrivacyPolicy`            | `page-privacy-policy.php`       | `privacy-policy`         |
+| `pages/TermsOfUse`               | `page-terms-of-use.php`         | `terms-of-use`           |
+| `pages/CookiePolicy`             | `page-cookie-policy.php`        | `cookie-policy`          |
+| `pages/NotFound`                  | `404.php`                        | —                        |
+| `pages/Unsubscribe`              | `page-unsubscribe.php`          | `unsubscribe`            |
 
 ## CSS Class Naming Convention
 
