@@ -42,7 +42,7 @@ const GetInTouch = () => {
   };
 
   return (
-    <section id="get-in-touch" className="py-16 md:py-20">
+    <section id="get-in-touch" className="vs-section vs-section--get-in-touch py-16 md:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
           Get in touch

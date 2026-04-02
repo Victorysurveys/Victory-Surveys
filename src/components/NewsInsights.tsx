@@ -70,7 +70,7 @@ const NewsInsights = () => {
   };
 
   return (
-    <section id="coverage" className="py-16 md:py-20">
+    <section id="coverage" className="vs-section vs-section--coverage py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-10">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider">Coverage</p>

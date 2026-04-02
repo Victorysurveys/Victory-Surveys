@@ -169,7 +169,7 @@ const QuoteRequestForm = () => {
   const inputClass = "bg-background text-foreground";
 
   return (
-    <section id="quote-request" className="py-16 md:py-20 bg-brand-dark">
+    <section id="quote-request" className="vs-section vs-section--quote-form py-16 md:py-20 bg-brand-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-brand-dark-text text-center">
           Request a Quote

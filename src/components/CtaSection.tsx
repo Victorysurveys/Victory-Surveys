@@ -50,7 +50,7 @@ const CtaSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-secondary">
+    <section id="local-surveyor" className="vs-section vs-section--local-surveyor py-16 md:py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Location bar */}
         <div className="mb-10 bg-primary/10 border border-primary/20 rounded-sm px-6 py-4 flex items-center justify-center gap-3 text-center">
