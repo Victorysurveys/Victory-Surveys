@@ -17,20 +17,12 @@ const GetInTouch = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const id = crypto.randomUUID();
-      await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-enquiry",
-          recipientEmail: "info@victorysurveys.co.uk",
-          idempotencyKey: `contact-${id}`,
-          templateData: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            message: form.message,
-            source: "Get in Touch form",
-          },
-        },
+      await submitContactForm({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        source: "Get in Touch form",
       });
       toast.success("Enquiry sent! We'll be in touch soon.");
       setForm({ name: "", email: "", phone: "", message: "" });
