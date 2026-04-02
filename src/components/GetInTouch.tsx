@@ -50,12 +50,6 @@ const GetInTouch = () => {
             01493 886199
           </a>
           <a
-            href={PHONE_NUMBER}
-            className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
-          >
-            (+44) 07874 062271 — Jamie (Local Surveyor)
-          </a>
-          <a
             href="mailto:Info@victorysurveys.co.uk"
             className="inline-flex items-center gap-3 text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
