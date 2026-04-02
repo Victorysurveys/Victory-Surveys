@@ -10,7 +10,7 @@ import greatYarmouthImg from "@/assets/great-yarmouth.webp";
 import norwichImg from "@/assets/norwich.webp";
 import suffolkImg from "@/assets/suffolk-coast.webp";
 
-const PHONE_NUMBER = "tel:+4407874062271";
+
 
 const areas = [
   {
@@ -124,7 +124,7 @@ const NewsInsights = () => {
 
           {showOptions && (
             <div className="mt-3 flex gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
-              <a href={PHONE_NUMBER}>
+              <a href="tel:01493886199">
                 <Button variant="outline" size="sm" className="gap-2">
                    Call Us
                 </Button>
